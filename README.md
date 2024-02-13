@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 
 
 <h2><B> Step 1 </h2> </b>
-Type in your VSS terminal cd <your file path> for your project. For example, my file path is in /Users/sole-swap, so I would type in cd /Users/sole-swap. If this doesn't work, just type in cd sole-swap. `
+Type in your VSC terminal cd <your file path> for your project. For example, my file path is in /Users/sole-swap, so I would type in cd /Users/sole-swap. If this doesn't work, just type in cd sole-swap. `
 
 <h2><B> Step 2 </h2> </b>
 Once you're in the correct file directory, type npm install. If you are in the correct directory, then it should work. If it is erroring, you're not in the correct directory. You must type in npm install in order to install the node modules for the vite + react project to run on your computer.
