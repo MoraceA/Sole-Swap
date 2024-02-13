@@ -1,37 +1,44 @@
-//february 12 c
+import React from 'react';
+import './App.css';
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div id="root">
+      <nav>
+        <div>
+          <img src="/path/to/sole-swap-logo.png" alt="Sole Swap Logo" className="logo" />
+        </div>
+        <ul>
+          <li><a href="/">Women's</a></li>
+          <li><a href="/mens">Men's</a></li>
+          <li><a href="/kids">Kids</a></li>
+        </ul>
+      </nav>
+
+      <header>
+        <div className="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button>Search</button>
+        </div>
+
+        <i className="shopping-cart">🛒</i>
+
+        <div className="sign-up-login">
+          <button>Sign Up</button>
+          <button>Login</button>
+        </div>
+      </header>
+
+      <div className="carousel">
+        {/* Add your carousel component here */}
+        {/* Example: */}
+        <img src="/path/to/image1.jpg" alt="Carousel Image 1" />
+        <img src="/path/to/image2.jpg" alt="Carousel Image 2" />
+        <img src="/path/to/image3.jpg" alt="Carousel Image 3" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
