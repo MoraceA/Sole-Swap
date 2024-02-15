@@ -19,12 +19,13 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%; /* Adjust as needed */
-  max-width: 800px; /* Adjust as needed */
+  width: 80%; 
+  max-width: 800px; 
   box-sizing: border-box;
   padding: 20px;
 }
 
+/* nav styles  */
 nav {
   margin-top: 20px;
 }
@@ -45,32 +46,39 @@ nav ul li a {
   color: black; /* Set text color to black */
 }
 
+
+
 .logo {
   height: 40px;
   width: auto;
 }
 
+/*  Search bar style  */
 .search-bar {
   display: flex;
   align-items: center;
 }
 
 .search-bar input {
-  width: 70%; 
+  width: 400px; 
   padding: 10px;
   box-sizing: border-box;
+  border: none; 
+  border-radius: 25px; 
+  background-color: #ddd; 
+  outline: none; /* Remove default focus outline */
+  background-image: url('/path/to/magnifying-glass.png'); /* need magnifying glass image */
+  background-size: 20px; /* change size of the magnifying glass image */
+  background-repeat: no-repeat; 
+  background-position: 10px center; 
 }
 
-
-.search-bar button {
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
+/* Adjust the padding to make space for the magnifying glass image */
+.search-bar input::placeholder {
+  padding-left: 30px;
 }
 
+/* Button styles */
 .sign-up-login {
   display: flex;
   align-items: center;
@@ -80,6 +88,18 @@ nav ul li a {
   margin-left: 10px;
 }
 
+.sign-up-login button,
+.header-content .sign-up-login button {
+  background-color: white; 
+  color: black; /* text color black */
+}
+
+.header-content .sign-up-login button:last-child {
+  background-color: white; 
+  color: black; /* text black */
+}
+
+/*  Carousel styles  */
 .carousel-container {
   width: 80%;
   max-width: 800px;
