@@ -56,10 +56,11 @@ nav ul li a {
 }
 
 .search-bar input {
-  width: calc(140% - 100px);
+  width: 70%; 
   padding: 10px;
   box-sizing: border-box;
 }
+
 
 .search-bar button {
   padding: 10px;
@@ -77,6 +78,12 @@ nav ul li a {
 
 .sign-up-login button {
   margin-left: 10px;
+}
+
+.carousel-container {
+  width: 80%;
+  max-width: 800px;
+  margin-top: 20px; /* Adjust the margin as needed */
 }
 
 
