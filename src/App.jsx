@@ -25,7 +25,7 @@ const App = () => {
       {/* Header Section */}
       <div className="header-content">
         <div>
-          <img src="/path/to/sole-swap-logo.png" alt="Sole Swap Logo" className="logo" />
+          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
         <div className="search-bar">
@@ -62,6 +62,10 @@ const App = () => {
           ))}
         </Slider>
       </div>
+      <div className="carousel-text">
+        <h2> STYLE. SWAP. TRADE YOUR SHOES TODAY. </h2>
+      </div>
+  
     </div>
   );
 }
