@@ -3,6 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CreateAccount from './pages/Authentication/CreateAccount';
+
+const Home = () => {
+  return <div>Home Page</div>;
+}
 
 const App = () => {
   // Sample data for placeholder images and text
@@ -21,54 +27,59 @@ const App = () => {
   };
 
   return (
-    <div id="root">
-      {/* Header Section */}
-      <div className="header-content">
-        <div>
-          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+    <Router>
+      <div id="root">
+        {/* Header Section */}
+        <div className="header-content">
+          <div>
+            <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+          </div>
+
+          <div className="search-bar">
+            <input type="text" placeholder="Search..." />
+           
+          </div>
+
+          <div className="sign-up-login">
+            <button>🛒</button>
+            <button> <a href="/signup">Sign Up</a></button>
+            <button>Login</button>
+           
+          </div>
         </div>
 
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-         
+        {/* Navigation Section */}
+        <nav>
+          <ul>
+            <li><a href="/womens">Women's</a></li>
+            <li><a href="/mens">Men's</a></li>
+            <li><a href="/kids">Kids</a></li>
+            <li><a href="/brands">Brands</a></li>
+          </ul>
+        </nav>
+
+        {/* Carousel Section */}
+        <div className="carousel-container">
+          <Slider {...carouselSettings}>
+            {carouselItems.map((item) => (
+              <div key={item.id}>
+                <img src={item.imageUrl} alt={`Slide ${item.id}`} />
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className="carousel-text">
+          <h2> STYLE. SWAP. TRADE YOUR SHOES TODAY. </h2>
         </div>
 
-        <div className="sign-up-login">
-          <button>🛒</button>
-          <button>Sign Up</button>
-          <button>Login</button>
-         
-        </div>
+        <Routes>
+          <Route path="/signup" element={<CreateAccount />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
-
-      {/* Navigation Section */}
-      <nav>
-        <ul>
-          <li><a href="/womens">Women's</a></li>
-          <li><a href="/mens">Men's</a></li>
-          <li><a href="/kids">Kids</a></li>
-          <li><a href="/brands">Brands</a></li>
-        </ul>
-      </nav>
-
-      {/* Carousel Section */}
-      <div className="carousel-container">
-        <Slider {...carouselSettings}>
-          {carouselItems.map((item) => (
-            <div key={item.id}>
-              <img src={item.imageUrl} alt={`Slide ${item.id}`} />
-              <p>{item.text}</p>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="carousel-text">
-        <h2> STYLE. SWAP. TRADE YOUR SHOES TODAY. </h2>
-      </div>
-  
-    </div>
+    </Router>
   );
 }
 
 export default App;
-
