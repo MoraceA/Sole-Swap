@@ -49,8 +49,8 @@ body, html {
   
   
   .logo {
-    height: 40px;
-    width: auto;
+    height: 150px;
+    width: 150px;
   }
   
   /*  Search bar style  */
@@ -66,8 +66,8 @@ body, html {
     border: none; 
     border-radius: 25px; 
     background-color: #ddd; 
-    outline: none; /* Remove default focus outline */
-    background-image: url('/path/to/magnifying-glass.png'); /* need magnifying glass image */
+    outline: none; 
+    background-image: url('src/assets/search.png'); /* need magnifying glass image */
     background-size: 20px; /* change size of the magnifying glass image */
     background-repeat: no-repeat; 
     background-position: 10px center; 
@@ -91,17 +91,78 @@ body, html {
   .sign-up-login button,
   .header-content .sign-up-login button {
     background-color: white; 
-    color: black; /* text color black */
+    color: black; 
   }
   
   .header-content .sign-up-login button:last-child {
     background-color: white; 
-    color: black; /* text black */
+    color: black; 
   }
   
   /*  Carousel styles  */
   .carousel-container {
     width: 80%;
     max-width: 800px;
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 20px; 
   }
+
+  /* home.css */
+
+  .start-trading-button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block; 
+  }
+
+
+.footer {
+  background-color: #888; 
+  padding: 20px;
+  color: white;
+  text-align: center; /* Center text within the footer */
+  width: 100%; 
+  margin-bottom: 20px; 
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin-bottom: 10px; 
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  display: block; /* Make links display as block elements */
+}
+
+
+.carousel-text {
+  text-align: center;
+  color: black; 
+  background-image: url('path/to/background-photo.jpg'); /* background photo need */
+  background-size: cover;
+  background-position: center;
+  padding: 40px; 
+}
+
+.start-trading-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+  
