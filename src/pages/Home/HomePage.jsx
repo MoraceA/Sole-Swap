@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
 
 
+
 function Homepage() {
   const carouselItems = [
     { id: 1, imageUrl: 'https://via.placeholder.com/800x400', text: 'Placeholder 1' },
@@ -35,9 +36,9 @@ function Homepage() {
 
           <div className="sign-up-login">
             {/* Update or remove the empty button tag based on your needs */}
-            <button>Sample Button</button>
+            <button>Cart</button>
             <button>
-              <a to="/signup">Sign Up</a>
+              <a href="/createaccount">Sign Up</a>
             </button>
             <button>Login</button>
           </div>
