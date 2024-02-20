@@ -12,13 +12,13 @@ function Homepage() {
     { id: 3, imageUrl: 'https://via.placeholder.com/800x400', text: 'Shoe 3' },
   ];
 
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+const carouselSettings = {
+dots: true,
+infinite: true,
+speed: 500,
+slidesToShow: 1,
+slidesToScroll: 1,
+};
 
 return (
     <div id="root">
@@ -35,7 +35,7 @@ return (
 
         <div className="sign-up-login">
           <button>🛒</button>
-          <button> <a href="/signup">Sign Up</a></button>
+          <button> <a href="/createaccount">Sign Up</a></button>
           <button>Login</button>
          
         </div>
@@ -78,11 +78,8 @@ return (
   </ul>
 </footer>
 
-
-        
-      </div>
-   
-  );
+</div>
+);
 }
 
 export default Homepage;
