@@ -44,7 +44,7 @@ return (
       {/* Navigation Section */}
       <nav>
         <ul>
-          <li><a href="/womens">Women's</a></li>
+          <li><a href="/women's">Women's</a></li>
           <li><a href="/mens">Men's</a></li>
           <li><a href="/kid's">Kids</a></li>
           <li><a href="/brands">Brands</a></li>
