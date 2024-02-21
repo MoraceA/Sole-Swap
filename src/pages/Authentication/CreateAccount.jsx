@@ -23,32 +23,32 @@ const CreateAccount = () => {
 
   return (
     <div className="createaccount">
-      <h1>Join Now!</h1>
-      <p>Create an account to get started.</p>
+        <img src="src/assets/LoginPicture.png"/>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
-         First Name:
-          <input type="text" name="firstname" value={formData.firstname} onChange={handleChange} />
+    
+          <input type="text" name="firstname" id="firstname" className="input-field" placeholder="First Name" value={formData.firstname} onChange={handleChange} />
         </label>
         <label>
-         Last Name:
-          <input type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+       
+          <input type="text" name="lastname" id="lastname" className="input-field" placeholder="Last Name"value={formData.lastname} onChange={handleChange} />
         </label>
         <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+      
+          <input type="email" name="email" id="email" className="input-field" placeholder="Email"value={formData.email} onChange={handleChange} />
         </label>
         <label>
-          Username:
-          <input type="text" name="username" value={formData.username} onChange={handleChange} />
+    
+          <input type="text" name="username" id="username" className="input-field" placeholder="Username" value={formData.username} onChange={handleChange} />
         </label>
         <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          
+          <input type="password" name="password" id="password" className="input-field" placeholder="Password" value={formData.password} onChange={handleChange} />
         </label>
         <label>
-          Confirm Password:
-          <input type="password" name="confirmpassword" value={formData.confirmpassword} onChange={handleChange} />
+         
+          <input type="password" name="confirmpassword" id="confirmpassword" className="input-field" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleChange} />
         </label>
         <button type="submit">Create Account</button>
       </form>
