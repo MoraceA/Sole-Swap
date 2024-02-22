@@ -7,9 +7,9 @@ import '../Home/home.css';
 
 function Homepage() {
   const carouselItems = [
-    { id: 1, imageUrl: 'https://via.placeholder.com/800x400', text: 'Shoe 1' },
-    { id: 2, imageUrl: 'https://via.placeholder.com/800x400', text: 'Shoe 2' },
-    { id: 3, imageUrl: 'https://via.placeholder.com/800x400', text: 'Shoe 3' },
+    { id: 1, imageUrl: 'src/assets/c3.jpg', text: 'Shoe 1' },
+    { id: 2, imageUrl: 'src/assets/c1.jpg', text: 'Shoe 2' },
+    { id: 3, imageUrl: 'src/assets/c2.jpg', text: 'Shoe 3' },
   ];
 
 const carouselSettings = {
@@ -36,7 +36,7 @@ return (
         <div className="sign-up-login">
           <button>🛒</button>
           <button> <a href="/createaccount">Sign Up</a></button>
-          <button><a href="/Login">Login</a></button>
+          <button>< a href ="/Login">Login</a></button>
          
         </div>
       </div>
@@ -51,12 +51,16 @@ return (
         </ul>
       </nav>
 
-      {/* Carousel Section */}
-      <div className="carousel-container">
+     {/* Carousel Section */}
+     <div className="carousel-container">
         <Slider {...carouselSettings}>
           {carouselItems.map((item) => (
             <div key={item.id}>
-              <img src={item.imageUrl} alt={`Slide ${item.id}`} />
+              <img
+                src={item.imageUrl}
+                alt={`Slide ${item.id}`}
+                style={{ width: '800px', height: '400px' }}
+              />
               <p>{item.text}</p>
             </div>
           ))}
@@ -64,8 +68,13 @@ return (
       </div>
       <div className="carousel-text">
         <h2>STYLE. SWAP. TRADE YOUR SHOES TODAY.</h2>
-        <button className="start-trading-button">Start Trading</button>
       </div>
+
+      <div className="start-trade">
+    <button className="start-trading-button">Start Trading</button>
+
+    <div className="start-trading-background"></div>
+  </div>
 
      
      

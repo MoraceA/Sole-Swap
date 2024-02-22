@@ -2,17 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from '../src/pages/Home/HomePage'; 
 import CreateAccount from '../src/pages/Authentication/CreateAccount'; 
-import Login from '../src/pages/Authentication/Login.jsx';
-import AboutUs from '../src/pages/About/AboutUs.jsx';
-import Contact from '../src/pages/About/Contact.jsx';
-import FAQ from '../src/pages/About/FAQ.jsx';
-import Profile from '../src/pages/Account/ProfilePage.jsx';
-import Kids from '../src/pages/Shoes/Kids.jsx';
-import Mens from '../src/pages/Shoes/Mens.jsx';
-import Womens from '../src/pages/Shoes/Womens.jsx';
-import Brands from '../src/pages/Shoes/Brands.jsx'
-
-
+import Login from '../src/pages/Authentication/Login'; 
 
 function App() {
   return (
