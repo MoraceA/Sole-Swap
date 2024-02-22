@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './CreateAccount.css';
 
-
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
     firstname: '',
@@ -24,35 +23,81 @@ const CreateAccount = () => {
 
   return (
     <div className="createaccount">
-        <img src="src/assets/LoginPicture.png"/>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-    
-          <input type="text" name="firstname" id="firstname" className="input-field" placeholder="First Name" value={formData.firstname} onChange={handleChange} />
-        </label>
-        <label>
-       
-          <input type="text" name="lastname" id="lastname" className="input-field" placeholder="Last Name"value={formData.lastname} onChange={handleChange} />
-        </label>
-        <label>
-      
-          <input type="email" name="email" id="email" className="input-field" placeholder="Email"value={formData.email} onChange={handleChange} />
-        </label>
-        <label>
-    
-          <input type="text" name="username" id="username" className="input-field" placeholder="Username" value={formData.username} onChange={handleChange} />
-        </label>
-        <label>
-          
-          <input type="password" name="password" id="password" className="input-field" placeholder="Password" value={formData.password} onChange={handleChange} />
-        </label>
-        <label>
-         
-          <input type="password" name="confirmpassword" id="confirmpassword" className="input-field" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleChange} />
-        </label>
-        <button type="submit" className="signup-button">Create Account</button>
-      </form>
+      <section className="section1">
+        <img src="/src/assets/LoginPicture.png" alt="Login Picture" />
+      </section>
+      <section className="section2">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              className="input-field"
+              placeholder="First Name"
+              value={formData.firstname}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              className="input-field"
+              placeholder="Last Name"
+              value={formData.lastname}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="input-field"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              className="input-field"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="input-field"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <input
+              type="password"
+              name="confirmpassword"
+              id="confirmpassword"
+              className="input-field"
+              placeholder="Confirm Password"
+              value={formData.confirmpassword}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit" className="signup-button">Create Account</button>
+        </form>
+      </section>
     </div>
   );
 };
