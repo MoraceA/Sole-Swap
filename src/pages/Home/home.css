@@ -116,19 +116,19 @@ body, html {
     border: 2px solid black;
     padding: 10px 20px;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 70px;
     cursor: pointer;
     display: inline-block; 
   }
 
 
 .footer {
-  background-color: #888; 
-  padding: 20px;
+  background-color: lightgray; 
+  padding: 30px;
   color: white;
-  text-align: center; /* Center text within the footer */
+  text-align: center; 
   width: 100%; 
-  margin-bottom: 20px; 
+
 }
 
 .footer ul {
@@ -157,18 +157,17 @@ body, html {
 .start-trading-button {
   /* Add styles for the Start Trading button as needed */
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   cursor: pointer;
 }
 
 .start-trading-background {
-  background-image: url('./src/assets/background.jpg');
-
+  background-image: url('src/assets/background.jpg');
   background-size: cover;
   background-position: center;
   position: absolute;
