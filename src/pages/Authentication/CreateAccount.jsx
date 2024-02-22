@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CreateAccount.css';
 
+
 const CreateAccount = () => {
   const [formData, setFormData] = useState({
     firstname: '',
@@ -50,7 +51,7 @@ const CreateAccount = () => {
          
           <input type="password" name="confirmpassword" id="confirmpassword" className="input-field" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleChange} />
         </label>
-        <button type="submit">Create Account</button>
+        <button type="submit" className="signup-button">Create Account</button>
       </form>
     </div>
   );
