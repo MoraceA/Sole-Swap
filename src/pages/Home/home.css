@@ -148,23 +148,35 @@ body, html {
 }
 
 
-.carousel-text {
+.start-trade {
   text-align: center;
-  color: black; 
-  background-image: url('path/to/background-photo.jpg'); /* background photo need */
-  background-size: cover;
-  background-position: center;
-  padding: 40px; 
+  color: black;
+  position: relative; /* Ensure relative positioning for absolute children */
 }
 
 .start-trading-button {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
+  /* Add styles for the Start Trading button as needed */
   padding: 10px 20px;
   font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
   cursor: pointer;
-  display: inline-block;
 }
 
-  
+.start-trading-background {
+  background-image: url('./src/assets/background.jpg');
+
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; 
+  opacity: 0.5; 
+
+}
