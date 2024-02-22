@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ProfilePage() {
+function Brands() {
   return (
     <div>
       <p>We are currently working on our website. Please check back later!</p>
@@ -10,4 +10,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default Brands;

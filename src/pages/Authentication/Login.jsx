@@ -45,9 +45,11 @@ function Login() {
       </div>
       
       <button className="login-button">Log In</button>
-      <button className="create-account-button">Create Account</button>
+      <button className="create-account-button"> <a href="/createaccount">Create Account</a></button>
     </div>
   );
 }
 
 export default Login;
+
+
