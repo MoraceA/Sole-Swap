@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
+#login-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+}
+
+.sign-up-login button {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.image-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.promo-image {
+  width: 100%;
+  height: auto;
+}
+
 .login-form-container {
   display: flex;
   flex-direction: column;
@@ -7,7 +52,7 @@
   margin-top: 10px;
   width: 100%;
   max-width: 400px;
-  font-family: 'Graduate', cursive; 
+  font-family: 'Graduate', cursive;
 }
 
 .login-title {
@@ -26,19 +71,18 @@
 .input-icon {
   position: absolute;
   left: 10px;
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
 }
 
 .login-input {
   width: 100%;
-  padding: 10px 10px 10px 40px; 
+  padding: 10px 10px 10px 40px;
   border-radius: 5px;
   border: 1px solid #c9c9c9;
   background-color: #f9f9f9;
   color: black;
   box-sizing: border-box;
-  font-family: 'Graduate', cursive; 
 }
 
 .password-toggle-icon {
@@ -62,7 +106,7 @@
 .remember-me, .forgot-password-link {
   font-size: smaller;
   color: #000;
-  font-family: 'Graduate', cursive; 
+  font-family: 'Graduate', cursive;
 }
 
 .login-button, .create-account-button {
@@ -73,7 +117,7 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family: 'Graduate', cursive; 
+  font-family: 'Graduate', cursive;
 }
 
 .login-button {
@@ -85,4 +129,8 @@
   background-color: transparent;
   color: #000;
   font-size: smaller;
+  text-align: center; 
+  display: block; 
+  width: fit-content; 
+  margin: 0 auto; 
 }
