@@ -23,7 +23,7 @@ function Login() {
           <img src={soleSwapLogo} alt="Sole Swap Logo" className="logo" />
         </div>
         <div className="sign-up-login">
-          <button>🛒</button>
+        <button>❤️</button>
           <Link to="/createaccount"><button>Sign Up</button></Link> 
           <Link to="/login"><button>Login</button></Link> 
         </div>
