@@ -1,0 +1,46 @@
+.about-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.team-member {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.team-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.soleSwap-logo {
+  width: 150px; 
+  margin-bottom: 20px; 
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex-basis: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-member {
+    flex-basis: 80%;
+  }
+  .soleSwap-logo {
+    width: 120px; 
+  }
+}
