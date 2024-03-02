@@ -20,12 +20,14 @@ function Login() {
       {/* Header Content */}
       <div className="header-content">
         <div>
-          <img src={soleSwapLogo} alt="Sole Swap Logo" className="logo" />
+          <Link to="/"> {}
+            <img src={soleSwapLogo} alt="Sole Swap Logo" className="logo" />
+          </Link>
         </div>
         <div className="sign-up-login">
-        <button>❤️</button>
-          <Link to="/createaccount"><button>Sign Up</button></Link> 
-          <Link to="/login"><button>Login</button></Link> 
+          <button>❤️</button>
+          <Link to="/createaccount"><button>Sign Up</button></Link>
+          <Link to="/login"><button>Login</button></Link>
         </div>
       </div>
 
