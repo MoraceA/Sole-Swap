@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('your_service_id', 'your_template_id', e.target, 'your_user_id')
+    emailjs.sendForm('service_ted287k', 'template_2bdskeb', e.target, 'kIev1I-QO2hBowJKf')
       .then((result) => {
         alert('Message sent successfully!');
         e.target.reset();
