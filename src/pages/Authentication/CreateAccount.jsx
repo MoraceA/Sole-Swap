@@ -12,20 +12,47 @@ const CreateAccount = () => {
     confirmpassword: '',
   });
 
+  const [error, setError] = useState('');
+
   const handleChange = (e) => {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userCredentials); // Check the form data
-    // You can handle form submission logic here if needed
+
+    const password = userCredentials.password;
+    const confirmPassword = userCredentials.confirmpassword;
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (!/\d/.test(password)) {
+      setError("Password must contain at least one number.");
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setError("Password must contain at least one special character.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    // Clear error if validation passes
+    setError("");
+
+    // Handle form submission logic here
   };
 
   const handleSignUp = (e) => {
-    e.preventDefault();
-    console.log('signup');
-
+    e.preventDefault(); // Prevent default form submission behavior
+  
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
       .then((userCredential) => {
@@ -35,6 +62,7 @@ const CreateAccount = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage); // Set error message
         console.log(errorCode, errorMessage); // Log any errors
       });
   };
@@ -64,6 +92,9 @@ const CreateAccount = () => {
         </label>
         <button type="submit" className="signup-button" onClick={handleSignUp}>Create Account</button>
       </form>
+
+      {/* Error message */}
+      {error && <div className="error">{error}</div>}
     </div>
   );
 };
