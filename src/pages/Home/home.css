@@ -108,6 +108,10 @@ body, html {
     margin-top: 20px; 
   }
 
+  .carousel-text {
+    text-align: center;
+  }
+
   /* home.css */
 
   .start-trading-button {
