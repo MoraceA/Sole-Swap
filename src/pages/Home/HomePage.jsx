@@ -36,7 +36,7 @@ return (
         </div>
 
         <div className="sign-up-login">
-          <button>🛒</button>
+        <button>❤️</button>
           <button> <a href="/createaccount">Sign Up</a></button>
           <button>< a href ="/Login">Login</a></button>
          
