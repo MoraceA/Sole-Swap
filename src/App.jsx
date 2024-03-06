@@ -11,6 +11,9 @@ import Brands from '../src/pages/Shoes/Brands.jsx';
 import Kids from '../src/pages/Shoes/Kids.jsx';
 import Mens from '../src/pages/Shoes/Mens.jsx';
 import Womens from '../src/pages/Shoes/Womens.jsx';
+import ForgotPassword from '../src/pages/Authentication/ForgotPassword';
+import UserDashboard from '../src/pages/Account/UserDashboard';
+
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
         <Route path="/home" element={<Homepage />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/forgot-password" element={<ForgotPassword />} />
+        <Route exact path="/UserDashboard" element={<UserDashboard />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/about" element={<About />} />
