@@ -2,10 +2,11 @@
 .createaccount {
   display: flex;
   box-sizing: border-box;
+  flex-direction: row;
 }
 
 .createaccount .section1 {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -13,7 +14,7 @@
 }
 
 .createaccount img {
-  width: 50%;    /*was 100%*/
+  width: 100%;
   height: auto;
 }
 
@@ -58,7 +59,7 @@
 /* Individual input styling */
 .createaccount .input-field {
   box-sizing: border-box;
-  width: 500px;
+  width: 100%;
   height: 50px;
   background: #FFFFFF;
   border: 1px solid #000000;
@@ -73,4 +74,16 @@
   bottom: 0;
   width: 100%; /* Ensure it spans the full width */
   text-align: center; /* Center the text horizontally */
+}
+
+/* flexbox adjustments when resizing the window */
+@media screen and (max-width: 768px) {
+  .createaccount {
+    flex-direction: column;
+  }
+
+  .createaccount .section1,
+  .createaccount .section2 {
+    width: 100%;
+  }
 }

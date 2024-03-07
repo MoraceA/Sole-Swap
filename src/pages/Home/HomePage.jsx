@@ -55,7 +55,7 @@ function Homepage() {
         </div>
 
         <div className="sign-up-login">
-          <button>🛒</button>
+        <button>❤️</button>
           <button> <a href="/createaccount">Sign Up</a></button>
           <button>< a href ="/Login">Login</a></button>
         </div>
@@ -79,7 +79,7 @@ function Homepage() {
               <img
                 src={item.imageUrl}
                 alt={`Slide ${item.id}`}
-                style={{ width: '800px', height: '400px' }}
+                style={{ width: '100%', height: 'auto' }}
               />
               <p>{item.text}</p>
             </div>
