@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "^10.8.0",
+    "@firebase/firestore": "^4.4.2",
+    "@firebase/storage": "^0.12.1",
+    "firebase": "^10.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",

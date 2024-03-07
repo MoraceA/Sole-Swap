@@ -11,13 +11,13 @@ import Brands from '../src/pages/Shoes/Brands.jsx';
 import Kids from '../src/pages/Shoes/Kids.jsx';
 import Mens from '../src/pages/Shoes/Mens.jsx';
 import Womens from '../src/pages/Shoes/Womens.jsx';
-
+import DisplaySearchResults from '../src/pages/DisplaySearchResults/DisplaySearchResults'; // Import DisplaySearchResults component
 
 function App() {
   return (
     <Router>
       <Routes>
-      <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/login" element={<Login />} />
@@ -29,21 +29,11 @@ function App() {
         <Route exact path="/kid's" element={<Kids/>} />
         <Route exact path="/mens" element={<Mens/>} />
         <Route exact path="/women's" element={<Womens/>} />
-
-
-
-
-        
-
-    
+        <Route path="/displaysearchresults" element={<DisplaySearchResults />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
-
-
 

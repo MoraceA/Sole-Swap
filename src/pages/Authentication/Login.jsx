@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usernameIcon from '../../assets/username.png';
@@ -6,7 +7,11 @@ import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
-import {auth} from '/Users/ariana/Documents/Sole-Swap/firebase.js';
+// Adjusted import path
+import { auth } from '../../../firebase.js';
+
+
+
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
