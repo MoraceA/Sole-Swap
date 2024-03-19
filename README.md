@@ -20,9 +20,9 @@ Once the node modules are installed, type npm run dev to run the project. Your t
 
 
 <h1> Git Commands </h1>
-<b> npm install react-router-dom </b>
-<b> npm install firebase </b>
-<b> npm install -g firebase-tools </b>
-<b> npm install react-slick slick-carousel </b>
-<b> npm install emailjs-com </b> 
+npm install react-router-dom  
+npm install firebase 
+npm install -g firebase-tools
+npm install react-slick slick-carousel 
+npm install emailjs-com 
 
