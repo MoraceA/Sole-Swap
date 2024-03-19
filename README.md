@@ -19,8 +19,7 @@ Once you're in the correct file directory, type npm install. If you are in the c
 Once the node modules are installed, type npm run dev to run the project. Your terminal should guide you with the keys to open the project. Type o & return to open the project in your server. 
 
 
-#git Commands 
-
+<h1> Git Commands </h1>
 npm install react-router-dom
 npm install firebase
 npm install -g firebase-tools
