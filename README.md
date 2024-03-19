@@ -17,3 +17,13 @@ Once you're in the correct file directory, type npm install. If you are in the c
 
 <h2><B> Step 3 </h2> </b>
 Once the node modules are installed, type npm run dev to run the project. Your terminal should guide you with the keys to open the project. Type o & return to open the project in your server. 
+
+
+#git Commands 
+
+npm install react-router-dom
+npm install firebase
+npm install -g firebase-tools
+npm install react-slick slick-carousel
+npm install emailjs-com
+
