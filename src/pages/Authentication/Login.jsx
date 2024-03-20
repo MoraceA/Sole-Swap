@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import usernameIcon from '../../assets/username.png';
@@ -7,11 +6,7 @@ import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
-// Adjusted import path
-import { auth } from '../../../firebase.js';
-
-
-
+import {auth} from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/firebase.js';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,16 +18,6 @@ function Login() {
     setUserCredentials({...userCredentials, [e.target.name]: e.target.value});
     console.log(userCredentials, auth);
   }
-
-
-
-
-
-
-
-
-
-
 
 
   // Toggle password visibility
