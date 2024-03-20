@@ -2,126 +2,129 @@
 
 body, html {
   font-family: 'Graduate', cursive; 
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
   
-#root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
-  background-color: white;
-}
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+  }
   
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%; 
-  max-width: 800px; 
-  box-sizing: border-box;
-  padding: 20px;
-}
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; 
+    max-width: 800px; 
+    box-sizing: border-box;
+    padding: 20px;
+  }
   
-/* nav styles */
-nav {
-  margin-top: 20px;
-}
+  /* nav styles  */
+  nav {
+    margin-top: 20px;
+  }
   
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
   
-nav ul li {
-  margin-right: 10px;
-}
+  nav ul li {
+    margin-right: 10px;
+  }
   
-nav ul li a {
-  text-decoration: none;
-  color: black; /* Set text color to black */
-}
+  nav ul li a {
+    text-decoration: none;
+    color: black; /* Set text color to black */
+  }
   
-.logo {
-  height: 150px;
-  width: 150px;
-}
-  /* Search bar style */
-.search-bar {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+  
+  
+  .logo {
+    height: 150px;
+    width: 150px;
+  }
+  
+  /*  Search bar style  */
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    width: 400px; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: none; 
+    border-radius: 25px; 
+    background-color: #ddd; 
+    outline: none; 
+    background-image: url('src/assets/search.png'); /* need magnifying glass image */
+    background-size: 20px; /* change size of the magnifying glass image */
+    background-repeat: no-repeat; 
+    background-position: 10px center; 
+  }
+  
+  /* Adjust the padding to make space for the magnifying glass image */
+  .search-bar input::placeholder {
+    padding-left: 30px;
+  }
+  
+  /* Button styles */
+  .sign-up-login {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sign-up-login button {
+    margin-left: 10px;
+  }
+  
+  .sign-up-login button,
+  .header-content .sign-up-login button {
+    background-color: white; 
+    color: black; 
+  }
+  
+  .header-content .sign-up-login button:last-child {
+    background-color: white; 
+    color: black; 
+  }
+  
+  /*  Carousel styles  */
+  .carousel-container {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px; 
+  }
 
-.search-bar input {
-  width: calc(100% - 5px); /* Adjust width to make the search bar longer */
-  padding: 15px 20px; /* Adjust padding as needed */
-  box-sizing: border-box;
-  border: none;
-  border-radius: 30px;
-  background-color: #ddd;
-  outline: none;
-  background-image: url('src/assets/search.png');
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: 20px center;
-}
+  .carousel-text {
+    text-align: center;
+  }
 
-.search-bar input:focus,
-.search-bar input:not(:placeholder-shown) {
-  background-image: none;
-}
+  /* home.css */
 
-.search-bar input::placeholder {
-  padding-left: 40px;
-}
+  .start-trading-button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 70px;
+    cursor: pointer;
+    display: inline-block; 
+  }
 
-
-/* Button styles */
-.sign-up-login {
-  display: flex;
-  align-items: center;
-}
-
-.sign-up-login button {
-  margin-left: 10px;
-}
-
-.sign-up-login button,
-.header-content .sign-up-login button {
-  background-color: white; 
-  color: black; 
-}
-
-.header-content .sign-up-login button:last-child {
-  background-color: white; 
-  color: black; 
-}
-
-/* Carousel styles */
-.carousel-container {
-  width: 80%;
-  max-width: 800px;
-  margin-top: 20px; 
-}
-
-/* home.css */
-.start-trading-button {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-top: 70px;
-  cursor: pointer;
-  display: inline-block; 
-}
 
 .footer {
   background-color: rgb(0, 0, 0); 
@@ -129,6 +132,7 @@ nav ul li a {
   color: white;
   text-align: center; 
   width: 100%; 
+
 }
 
 .footer ul {
@@ -146,6 +150,7 @@ nav ul li a {
   color: white;
   display: block; /* Make links display as block elements */
 }
+
 
 .start-trade {
   text-align: center;
@@ -176,4 +181,5 @@ nav ul li a {
   bottom: 0;
   z-index: -1; 
   opacity: 0.5; 
+
 }
