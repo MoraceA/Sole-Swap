@@ -61,7 +61,7 @@ return (
               <img
                 src={item.imageUrl}
                 alt={`Slide ${item.id}`}
-                style={{ width: '800px', height: '400px' }}
+                style={{ width: '100%', height: 'auto' }}
               />
               <p>{item.text}</p>
             </div>

@@ -2,10 +2,11 @@
 .createaccount {
   display: flex;
   box-sizing: border-box;
+  flex-direction: row;
 }
 
 .createaccount .section1 {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -19,7 +20,7 @@
 
 /* Section 2 */
 .createaccount .section2 {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -65,8 +66,18 @@
   margin-bottom: 20px;
 }
 
-/* Adjustments for responsiveness */
-@media (max-width: 768px) {
+/* error messsage*/
+.error {
+  color: red;
+  font-size: 16px; /* Adjust font size as needed */
+  position: absolute;
+  bottom: 0;
+  width: 100%; /* Ensure it spans the full width */
+  text-align: center; /* Center the text horizontally */
+}
+
+/* flexbox adjustments when resizing the window */
+@media screen and (max-width: 768px) {
   .createaccount {
     flex-direction: column;
   }
@@ -76,5 +87,3 @@
     width: 100%;
   }
 }
-
-

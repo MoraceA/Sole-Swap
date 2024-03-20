@@ -6,9 +6,19 @@ import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
+import {auth} from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/firebase.js';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [userCredentials, setUserCredentials]= useState({});
+
+
+  function handleCredentials(e) {
+
+    setUserCredentials({...userCredentials, [e.target.name]: e.target.value});
+    console.log(userCredentials, auth);
+  }
+
 
   // Toggle password visibility
   function togglePasswordVisibility() {
@@ -43,13 +53,13 @@ function Login() {
         {/* Username Input */}
         <div className="input-container">
           <img src={usernameIcon} alt="Username" className="input-icon" />
-          <input className="login-input" type="text" placeholder="Username" />
+          <input onChange={(e)=>{handleCredentials(e)}} className="login-input" type="text" placeholder="Username" />
         </div>
 
         {/* Password Input */}
         <div className="input-container">
           <img src={passwordIcon} alt="Password" className="input-icon" />
-          <input
+          <input onChange={(e)=>{handleCredentials(e)}} 
             className="login-input"
             type={showPassword ? "text" : "password"}
             placeholder="Password"

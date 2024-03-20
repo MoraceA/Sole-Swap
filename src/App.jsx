@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route exact path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/login" element={<Login />} />
@@ -35,18 +35,15 @@ function App() {
         <Route exact path="/profileform" element={<ProfileForm />} />
         <Route exact path="/userdashboard" element={<UserDashboard />} />
 
-
-
-
-        
-
-    
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+// <Route path="/" element={<SearchResults />} /> *this should go under the womens route path*
+
 
 
 
