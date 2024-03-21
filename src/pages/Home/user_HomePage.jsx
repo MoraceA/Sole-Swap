@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -37,8 +38,9 @@ return (
 
         <div className="sign-up-login">
         <button>❤️</button>
-          <button> <a href="/createaccount">Sign Up</a></button>
-          <button>< a href ="/Login">Login</a></button>
+           {/* Must go to Profile Page */}
+        <button><a href = "/dashboard"></a>👤</button> 
+        <button>< a href ="/home">Logout</a></button>
          
         </div>
       </div>
@@ -61,7 +63,7 @@ return (
               <img
                 src={item.imageUrl}
                 alt={`Slide ${item.id}`}
-                style={{ width: '100%', height: 'auto' }}
+                style={{ width: '800px', height: '400px' }}
               />
               <p>{item.text}</p>
             </div>
@@ -94,3 +96,18 @@ return (
 }
 
 export default Homepage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
