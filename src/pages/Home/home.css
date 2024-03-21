@@ -59,6 +59,31 @@ nav ul li a {
   align-items: center;
 }
 
+  /*  Carousel styles  */
+  .carousel-container {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px; 
+  }
+
+  .carousel-text {
+    text-align: center;
+  }
+
+  /* home.css */
+
+  .start-trading-button {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 70px;
+    cursor: pointer;
+    display: inline-block; 
+  }
+
+
 .search-bar input {
   width: calc(100% - 5px); /* Adjust width to make the search bar longer */
   padding: 15px 20px; /* Adjust padding as needed */

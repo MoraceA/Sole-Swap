@@ -13,16 +13,16 @@ import Womens from '../src/pages/Shoes/Womens.jsx';
 import Brands from '../src/pages/Shoes/Brands.jsx'
 import UserHome from '../src/pages/Home/user_HomePage.jsx';
 import UserDashboard from '../src/pages/Account/UserDashboard.jsx';
-
-
-
-
+import ForgotPassword from '../src/pages/Authentication/ForgotPassword';
+import UserDashboard from '../src/pages/Account/UserDashboard';
+//import SearchResults from '../src/pages/search/SearchResults'; 
 
 
 function App() {
   return (
     <Router>
-      <Routes>
+      <Routes> 
+    
         <Route exact path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
@@ -39,10 +39,20 @@ function App() {
         <Route exact path="/dashboard" element={<UserDashboard/>} />
 
         
+
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
+
+// <Route path="/" element={<SearchResults />} /> *this should go under the womens route path*
+
+
+
+
+
+
 
