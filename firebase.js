@@ -2,11 +2,10 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore"; 
-
-
+import { getFirestore } from "firebase/firestore"; // Import getFirestore
 
 const firebaseConfig = {
+  // Your Firebase configuration
   apiKey: "AIzaSyDFyBtrCITLqt5lsYWvdVDTwy8ZPCPPKFU",
   authDomain: "soleswap-d3aac.firebaseapp.com",
   projectId: "soleswap-d3aac",
@@ -20,6 +19,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const db = getFirestore(app);
+const db = getFirestore(app); // Initialize Firestore
 
-export {app, analytics, auth, db }
+export { app, analytics, auth, db }; // Export db here
