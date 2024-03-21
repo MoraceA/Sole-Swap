@@ -30,6 +30,7 @@ function Login() {
     signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        window.localStorage.setItem("isLoggedIn", true);
         console.log('Logged in:', user);
         renderHomePageForLoggedInUser();
       })
@@ -39,6 +40,7 @@ function Login() {
         console.error('Login error:', errorMessage);
       });
   }
+
 
   function renderHomePageForLoggedInUser() {
     // Check if the user is logged in

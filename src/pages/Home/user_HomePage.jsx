@@ -1,29 +1,44 @@
-
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
-
-
-//add photo for search bar 
+import { signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth"; // Import getAuth from firebase/auth
+import { auth } from '/Users/ariana/Documents/Sole-Swap/firebase.js';
 
 function Homepage() {
-  const carouselItems = [
-    { id: 1, imageUrl: 'src/assets/c3.jpg', text: 'Shoe 1' },
-    { id: 2, imageUrl: 'src/assets/c1.jpg', text: 'Shoe 2' },
-    { id: 3, imageUrl: 'src/assets/c2.jpg', text: 'Shoe 3' },
-  ];
+  const carouselItems = [
+    { id: 1, imageUrl: 'src/assets/c3.jpg', text: 'Shoe 1' },
+    { id: 2, imageUrl: 'src/assets/c1.jpg', text: 'Shoe 2' },
+    { id: 3, imageUrl: 'src/assets/c2.jpg', text: 'Shoe 3' },
+  ];
 
-const carouselSettings = {
-dots: true,
-infinite: true,
-speed: 500,
-slidesToShow: 1,
-slidesToScroll: 1,
-};
+  function handleLogout() {
+    window.localStorage.removeItem("isLoggedIn");
+    if (window.confirm('Are you sure you want to log out?')) { // Use window.confirm for confirmation dialog
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          console.log('User signed out successfully');
+        })
+        .catch((error) => {
+          // An error happened.
+          console.error('Error signing out:', error);
+        });
+    }
+  }
 
-return (
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  return (
     <div id="root">
       {/* Header Section */}
       <div className="header-content">
@@ -31,17 +46,14 @@ return (
           <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
-        <div className="search-bar"> 
+        <div className="search-bar">
           <input type="text" placeholder="Search..." />
-         
         </div>
 
         <div className="sign-up-login">
-        <button>❤️</button>
-           {/* Must go to Profile Page */}
-        <button><a href = "/dashboard"></a>👤</button> 
-        <button>< a href ="/home">Logout</a></button>
-         
+          <button>❤️</button>
+          <button><a href="/dashboard">👤</a></button>
+          <button onClick={handleLogout}>Logout</button> {/* Attach onClick event handler */}
         </div>
       </div>
 
@@ -55,8 +67,8 @@ return (
         </ul>
       </nav>
 
-     {/* Carousel Section */}
-     <div className="carousel-container">
+      {/* Carousel Section */}
+      <div className="carousel-container">
         <Slider {...carouselSettings}>
           {carouselItems.map((item) => (
             <div key={item.id}>
@@ -75,39 +87,20 @@ return (
       </div>
 
       <div className="start-trade">
-    <button className="start-trading-button">Start Trading</button>
+        <button className="start-trading-button">Start Trading</button>
 
-    <div className="start-trading-background"></div>
-  </div>
+        <div className="start-trading-background"></div>
+      </div>
 
-     
-     
-
-<footer class="footer">
-  <ul>
-    <li><a href="/about">About Us</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/faq">FAQ</a></li>
-  </ul>
-</footer>
-
-</div>
-);
+      <footer className="footer"> {/* Changed class to className for JSX */}
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </footer>
+    </div>
+  );
 }
 
 export default Homepage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
