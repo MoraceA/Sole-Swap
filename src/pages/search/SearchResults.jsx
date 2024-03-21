@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { db } from 'firebase/app'; // correct path ? 
-import 'firebase/firestore'; //correct path ? 
+import { db } from '../../firebase'; // Adjust the import path to where your firebase.js is located relative to this file
 import { collection, query, where, getDocs } from "firebase/firestore";
 import './search.css';
-
 
 function SearchResults() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,7 +18,7 @@ function SearchResults() {
       setSearchQuery(brandQuery);
       performSearch(brandQuery);
     }
-  }, [location.search]);
+  }, [location]);
 
   const performSearch = async (queryParam) => {
     if (!queryParam.trim()) {
@@ -46,8 +44,8 @@ function SearchResults() {
   };
 
   const handleSearch = () => {
-    performSearch(searchQuery);
     navigate(`?query=${searchQuery}`);
+    performSearch(searchQuery);
   };
 
   return (
@@ -83,4 +81,3 @@ function SearchResults() {
 }
 
 export default SearchResults;
-

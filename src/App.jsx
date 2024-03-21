@@ -13,6 +13,7 @@ import Womens from '../src/pages/Shoes/Womens.jsx';
 import ForgotPassword from '../src/pages/Authentication/ForgotPassword';
 import UserDashboard from '../src/pages/Account/UserDashboard';
 import ProfileForm from '../src/pages/Account/ProfileForm';
+import SearchResults from '../src/pages/search/SearchResults';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route exact path="/women's" element={<Womens/>} />
         <Route exact path="/profileform" element={<ProfileForm />} />
         <Route exact path="/userdashboard" element={<UserDashboard />} />
+        <Route path="/searchresults" element={<SearchResults />} />
 
       </Routes>
     </Router>
@@ -42,7 +44,6 @@ function App() {
 
 export default App;
 
-// <Route path="/" element={<SearchResults />} /> *this should go under the womens route path*
 
 
 
