@@ -1,29 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
-import profilePicUrl from '../../assets/userdashboard.png';
+import profilePicUrl from '../../assets/userdashboard.png'; // Make sure this path is correct
 
 function UserDashboard() {
   const navigate = useNavigate();
+  const [userProfile, setUserProfile] = useState({
+    username: "ARV247",
+    rating: 0,
+    followers: 0,
+    following: 0,
+    description: "Open to trading. Message me if you find something you like.",
+    image: profilePicUrl 
+  });
+  const [activeTab, setActiveTab] = useState('All');
+
+  // Load user profile from local storage
+  useEffect(() => {
+    const storedProfile = JSON.parse(localStorage.getItem('userProfile'));
+    if (storedProfile) {
+      setUserProfile(prevState => ({
+        ...prevState,
+        ...storedProfile, // This will overwrite the username, description, and image
+        image: storedProfile.image || profilePicUrl // Use stored image or default
+      }));
+    }
+  }, []);
 
   const goToSignUp = () => navigate('/createaccount');
   const goToLogin = () => navigate('/login');
 
-  const userProfile = {
-    username: "ARV247",
-    rating: 503,
-    status: "Active today",
-    followers: 1000,
-    following: 200,
-    description: "Open to trading. Message me if you find something you like."
-  };
-
-  const [activeTab, setActiveTab] = useState('All');
-
   return (
     <div className="dashboard-root">
       <div className="header-content">
-        <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+        {/* Logo wrapped in Link to navigate to home */}
+        <Link to="/">
+          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+        </Link>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
         </div>
@@ -36,11 +49,10 @@ function UserDashboard() {
 
       <div className="user-dashboard">
         <div className="profile-section">
-          <img src={profilePicUrl} alt="Profile" className="profile-pic" />
+          <img src={userProfile.image || profilePicUrl} alt="Profile" className="profile-pic" />
           <div className="profile-info">
             <h2>{userProfile.username}</h2>
             <span className="rating">* * * * * ({userProfile.rating})</span>
-            <p className="status">{userProfile.status}</p>
             <div className="social-counts">
               <Link to="/followers">{userProfile.followers} Followers</Link>
               <span> · </span>

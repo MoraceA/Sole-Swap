@@ -6,17 +6,14 @@ import Login from '../src/pages/Authentication/Login.jsx';
 import AboutUs from '../src/pages/About/AboutUs.jsx';
 import Contact from '../src/pages/About/Contact.jsx';
 import FAQ from '../src/pages/About/FAQ.jsx';
-import Profile from '../src/pages/Account/ProfilePage.jsx';
 import Kids from '../src/pages/Shoes/Kids.jsx';
 import Mens from '../src/pages/Shoes/Mens.jsx';
 import Womens from '../src/pages/Shoes/Womens.jsx';
 import Brands from '../src/pages/Shoes/Brands.jsx'
 import UserHome from '../src/pages/Home/user_HomePage.jsx';
 import UserDashboard from '../src/pages/Account/UserDashboard.jsx';
-
-
-
-
+import SearchResults from '../src/pages/search/SearchResults.jsx';
+import ProfileForm from '../src/pages/Account/ProfileForm.jsx'
 
 
 function App() {
@@ -30,13 +27,14 @@ function App() {
         <Route exact path="/about" element={<AboutUs/>} />
         <Route exact path="/contact" element={<Contact/>} />
         <Route exact path="/FAQ" element={<FAQ/>} />
-        <Route exact path="/profile" element={<Profile/>} />
         <Route exact path="/kid's" element={<Kids/>} />
         <Route exact path="/mens" element={<Mens/>} />
         <Route exact path="/women's" element={<Womens/>} />
         <Route exact path="/brands" element={<Brands/>} />
         <Route exact path="/userhome" element={<UserHome/>} />
-        <Route exact path="/dashboard" element={<UserDashboard/>} />
+        <Route exact path="/SearchResults" element={<SearchResults/>} />
+        <Route exact path="/ProfileForm" element={<ProfileForm/>} />
+        <Route exact path="/UserDashboard" element={<UserDashboard/>} />
 
         
       </Routes>
