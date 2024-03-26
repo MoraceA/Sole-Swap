@@ -1,0 +1,47 @@
+.liked-shoes-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f5f5f5; 
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header .logo {
+  max-width: 100px; 
+  margin-bottom: 10px;
+}
+
+.content {
+  max-width: 1200px; 
+  margin: auto;
+}
+
+.shoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.shoe-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  width: 220px; 
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.shoe-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.shoe-item h3, .shoe-item p {
+  margin: 10px 0 5px;
+}

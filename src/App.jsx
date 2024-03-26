@@ -14,6 +14,7 @@ import UserHome from '../src/pages/Home/user_HomePage.jsx';
 import UserDashboard from '../src/pages/Account/UserDashboard.jsx';
 import SearchResults from '../src/pages/search/SearchResults.jsx';
 import ProfileForm from '../src/pages/Account/ProfileForm.jsx'
+import LikedShoes from '../src/pages/search/likedShoes.jsx'
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
         <Route exact path="/SearchResults" element={<SearchResults/>} />
         <Route exact path="/ProfileForm" element={<ProfileForm/>} />
         <Route exact path="/UserDashboard" element={<UserDashboard/>} />
-
+        <Route exact path="/likedShoes" element={<LikedShoes />} />
         
       </Routes>
     </Router>
