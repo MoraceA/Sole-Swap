@@ -1,32 +1,100 @@
+.search-results-page {
+  font-family: Arial, sans-serif;
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+}
+
+.logo {
+  width: auto; 
+  height: 50px; 
+  cursor: pointer;
+}
+
+.search-header div button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-panel {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+}
+
 .shoes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .shoe-item {
-    border: 2px solid #000;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.shoe-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  width: 220px; 
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.shoe-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.shoe-item h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.shoe-item p {
+  margin: 5px 0;
+}
+
+.like-button, .trade-button {
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.trade-button {
+  background-color: #008CBA; 
+
+@media (max-width: 768px) {
+  .shoes-container {
     flex-direction: column;
     align-items: center;
-    width: 200px;
   }
-  
-  .shoe-item img {
-    margin-bottom: 10px;
-    width: 100px;
-    height: auto;
+
+  .shoe-item {
+    width: 90%; 
   }
-  
+
   .search-input {
-    margin-bottom: 10px;
+    width: 70%; 
   }
-  
-  .search-button {
-    margin-left: 10px;
-  }
-  
+}
