@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './ProfileForm.css';
+import soleSwapLogo from '../../assets/SOLE SWAP.png';
 
 function ProfileForm() {
   const [profile, setProfile] = useState({
@@ -29,45 +30,63 @@ function ProfileForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem('userProfile', JSON.stringify(profile));
-    navigate('/userdashboard'); 
+    navigate('/userdashboard');
   };
 
   return (
-    <div className="profile-form-container">
-      <form onSubmit={handleSubmit} className="profile-form">
-        <h2>Edit Your Profile</h2>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          name="username"
-          value={profile.username}
-          onChange={handleChange}
-          required
-        />
+    <div id="profile-root">
+      <div className="header-content">
+        <Link to="/">
+          <img src={soleSwapLogo} alt="Sole Swap Logo" className="logo" />
+        </Link>
+        <div className="sign-up-login">
+          <button>❤️</button>
+          <Link to="/createaccount"><button>Sign Up</button></Link>
+          <Link to="/login"><button>Login</button></Link>
+        </div>
+      </div>
 
-        <label htmlFor="profilePicture" className="input-file-trigger">Profile Picture</label>
-        <input
-          id="profilePicture"
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="input-file"
-          required
-        />
+      <div className="profile-form-container">
+        <form onSubmit={handleSubmit} className="profile-form">
+          <h2>Edit Your Profile</h2>
+          <div className="form-field">
+            <label htmlFor="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              value={profile.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          value={profile.description}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-field">
+            <label htmlFor="profilePicture">Profile Picture</label>
+            <input
+              id="profilePicture"
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={handleImageChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Update Profile</button>
-      </form>
+          <div className="form-field">
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              value={profile.description}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          
+          <button type="submit" className="update-btn">Update Profile</button>
+        </form>
+      </div>
     </div>
   );
 }
