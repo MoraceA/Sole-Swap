@@ -10,7 +10,9 @@ import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
-import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+
+import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';  //get your file path 
+
 
 
 function Login() {

@@ -5,7 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; // Import getAuth from firebase/auth
-import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+
+import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
 
 
 function Homepage() {
