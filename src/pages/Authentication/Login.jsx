@@ -10,7 +10,9 @@ import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
+
 import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';  //get your file path 
+
 
 
 function Login() {
@@ -76,8 +78,8 @@ function Login() {
         <h3 className="login-title">LOGIN</h3>
 
         <div className="input-container">
-          <img src={usernameIcon} alt="Username" className="input-icon" />
-          <input onChange={(e) => { handleCredentials(e) }} className="login-input" type="text" name="email" placeholder="Username" />
+          <img src={usernameIcon} alt="Email" className="input-icon" />
+          <input onChange={(e) => { handleCredentials(e) }} className="login-input" type="text" name="email" placeholder="Email" />
         </div>
 
         <div className="input-container">
