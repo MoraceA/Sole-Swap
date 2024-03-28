@@ -1,19 +1,40 @@
-# React + Vite
+# Sole Swap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+The sneaker trading community is currently facing an absence of a centralized, secure, and user-friendly platform, making it challenging for sneaker enthusiasts and collectors to effectively find, authenticate, and safely trade sneakers. This gap in the market hinders the ability for individuals to expand their collections and connect with others. This also impacts sneaker brands, retailers, and related services that could benefit from a thriving secondary market. The problem is multifaceted, involving issues of resources, knowledge, and attitudes—stemming from the lack of a dedicated platform that consolidates trading activities in one place, the need for reliable sneaker authentication, and the imperative to build trust within the community.
 
-Currently, two official plugins are available:
+## Project Description
+**Sole Swap** is a project aimed at addressing these challenges. The goal is to develop a website equipped with features tailored to the needs of sneaker enthusiasts, including a sophisticated filtering system, account security measures, a comprehensive rating and review system, and a robust verification process for sneaker authenticity. By drawing on best practices in e-commerce and leveraging insights from the sneaker community and technology experts, this platform aims to foster a vibrant, secure, and engaging space for sneaker trades. Ultimately, this initiative seeks to revolutionize the sneaker trading experience, making it more accessible, trustworthy, and enjoyable for enthusiasts worldwide, thereby catalyzing the growth of our secondary sneaker market.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- ReactJS
+- JavaScript
+- HTML/CSS
+- Firebase
 
+## Features
+- Sophisticated Filtering System
+- Account Security Measures
+- Comprehensive Rating and Review System
+- Robust Verification Process for Sneaker Authenticity
 
+## Contribution
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature`)
+3. Make your changes
+4. Commit your changes (`git commit -am 'Add feature'`)
+5. Push to the branch (`git push origin feature`)
+6. Create a new Pull Request
 
-<h2><B> Step 1 </h2> </b>
-Type in your VSC terminal cd <your file path> for your project. For example, my file path is in /Users/sole-swap, so I would type in cd /Users/sole-swap. If this doesn't work, just type in cd sole-swap. `
+## Contributors
+- Your Name
 
-<h2><B> Step 2 </h2> </b>
-Once you're in the correct file directory, type npm install. If you are in the correct directory, then it should work. If it is erroring, you're not in the correct directory. You must type in npm install in order to install the node modules for the vite + react project to run on your computer.
+## Resources
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Firebase Documentation](https://firebase.google.com/docs)
+- [Markdown Guide](https://www.markdownguide.org/getting-started/)
+- [GitHub Guides](https://guides.github.com/)
 
-<h2><B> Step 3 </h2> </b>
-Once the node modules are installed, type npm run dev to run the project. Your terminal should guide you with the keys to open the project. Type o & return to open the project in your server. 
+## License
+This project is licensed under the [MIT License](LICENSE).
