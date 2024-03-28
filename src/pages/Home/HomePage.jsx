@@ -38,7 +38,7 @@ function Homepage() {
         </div>
 
         <div className="sign-up-login">
-          <button>❤️</button>
+          <button> <a href="/likedShoes">❤️</a></button>
           <button><a href="/createaccount">Sign Up</a></button>
           <button><a href="/login">Login</a></button>
         </div>

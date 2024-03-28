@@ -5,7 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; // Import getAuth from firebase/auth
-import { auth } from '/Users/ariana/Documents/Sole-Swap/firebase.js';
+import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+
 
 function Homepage() {
   const carouselItems = [
@@ -52,7 +53,7 @@ function Homepage() {
 
         <div className="sign-up-login">
           <button>❤️</button>
-          <button><a href="/dashboard">👤</a></button>
+          <button><a href="/UserDashboard">👤</a></button>
           <button onClick={handleLogout}>Logout</button> {/* Attach onClick event handler */}
         </div>
       </div>
