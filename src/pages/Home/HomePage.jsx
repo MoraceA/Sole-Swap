@@ -33,9 +33,7 @@ function Homepage() {
           <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
+        
 
         <div className="sign-up-login">
           <button> <a href="/likedShoes">❤️</a></button>
