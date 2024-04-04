@@ -78,6 +78,7 @@ function SearchResults() {
               <h3>{shoe.name}</h3>
               <p>Brand: {shoe.brand}</p>
               <p>Size: {shoe.size}</p>
+              <p>Gender:{shoe.gender}</p>
               <p>Condition: {shoe.condition}</p>
               <p>Price: ${shoe.value}</p>
               <button onClick={() => handleLike(shoe.id)}>Like</button>
