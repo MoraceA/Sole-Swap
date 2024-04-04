@@ -11,7 +11,6 @@ import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
-import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';  //get your file path 
 
 
 
