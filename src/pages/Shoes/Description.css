@@ -1,0 +1,280 @@
+/* MacBook Air - 1 */
+body, html {
+  font-family: 'Graduate', cursive; 
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Sole Swap */
+#sole-swap {
+    position: absolute;
+    width: 221px;
+    height: 77px;
+    left: 33px;
+    top: 67px;
+    
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    
+    color: #000000;
+    
+    border: 1px solid #000000;
+    
+}
+
+/* Rectangle 1 */
+#rectangle-1 {
+    position: absolute;
+    width: 532px;
+    height: 43px;
+    left: 367px;
+    top: 63px;
+    background: #EAE9E9;
+    border-radius: 35px;
+}
+
+/* Frame */
+.frame {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 386px;
+    top: 73px;
+}
+
+/* Vectors */
+.vector {
+    position: absolute;
+    border: 2px solid #000000;
+}
+
+/* Search */
+#search {
+    position: absolute;
+    width: 119px;
+    height: 21px;
+    left: 434px;
+    top: 73px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #000000;
+}
+
+/* Nav Bar */
+.nav-bar {
+    position: absolute;
+    width: 742px;
+    height: 50px;
+    left: 449px;
+    top: 127px;
+}
+
+/* Rectangle 2 */
+#rectangle-2 {
+    position: absolute;
+    background: #FFFFFF;
+}
+
+/* Brands, Womens, Kids, Mens */
+.brand-text {
+    position: absolute;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+/* Vectors */
+.vector {
+    position: absolute;
+    border: 2px solid #000000;
+}
+
+/* Air Jordan 1 Retro High OG UNC Toe */
+#air-jordan {
+    position: absolute;
+    width: 473px;
+    height: 167px;
+    left: 721px;
+    top: 289px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Size US 9 Used- Good Condition Air Jordan */
+#size {
+    position: absolute;
+    width: 471px;
+    height: 37px;
+    left: 747px;
+    top: 387px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+/* Rectangle 3 */
+#rectangle-3 {
+    position: absolute;
+    width: 301px;
+    height: 52px;
+    left: 821px;
+    top: 469px;
+    background: #000000;
+}
+
+/* Make Offer */
+#make-offer {
+    position: absolute;
+    width: 163px;
+    height: 32px;
+    left: 890px;
+    top: 480px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    color: #FFFFFF;
+}
+
+/* Rectangle 4 */
+#rectangle-4 {
+    position: absolute;
+    width: 301px;
+    height: 52px;
+    left: 820px;
+    top: 545px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+/* Add to Bag */
+#add-to-bag {
+    position: absolute;
+    width: 260px;
+    height: 46px;
+    left: 841px;
+    top: 551px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Rectangle 5 */
+#rectangle-5 {
+    position: absolute;
+    width: 457px;
+    height: 106px;
+    left: 747px;
+    top: 728px;
+    background: #E4E3E3;
+}
+
+/* All purchases through Sole Swap are covered by Buyer Protection */
+#buyer-protection {
+    position: absolute;
+    width: 316px;
+    height: 58px;
+    left: 860px;
+    top: 752px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Learn More */
+#learn-more {
+    position: absolute;
+    width: 121px;
+    height: 18px;
+    left: 860px;
+    top: 792px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #405DF3;
+}
+
+/* Lines */
+.line {
+    position: absolute;
+    border: 1px solid #948989;
+    transform: rotate(0.11deg);
+}
+
+/* Description */
+#description {
+    position: absolute;
+    width: 485px;
+    height: 192px;
+    left: 719px;
+    top: 906px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Ellipse 1 */
+#ellipse {
+    position: absolute;
+    width: 96px;
+    height: 95px;
+    left: 709px;
+    top: 1098px;
+    background: url();
+}
+
+/* iluvjs */
+#iluvjs {
+    position: absolute;
+    width: 137px;
+    height: 30px;
+    left: 844px;
+    top: 1107px;
+    font-family: 'Graduate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    width: 20px;
