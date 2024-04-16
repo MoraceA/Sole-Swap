@@ -10,7 +10,11 @@ import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
-import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+
+import { auth } from '/Users/2018v/OneDrive/Documents/Sole-Swap/Sole-Swap/src/firebase.js';
+
+
+
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
