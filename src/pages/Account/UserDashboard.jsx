@@ -1,8 +1,9 @@
-// Import necessary modules
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
+import { db } from '../../firebase'; // Adjust based on your directory structure
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -32,6 +33,11 @@ function UserDashboard() {
     price: '',
     image: null
   });
+  const [review, setReview] = useState('');
+  const [rating, setRating] = useState(0);
+  const [reviews, setReviews] = useState([]); // State variable for reviews
+  const [isReviewPopupOpen, setIsReviewPopupOpen] = useState(false); // State variable to control review popup visibility
+  const [isReviewFormOpen, setIsReviewFormOpen] = useState(false); // State variable to control review form visibility
 
   useEffect(() => {
     // Load user profile from local storage
@@ -43,14 +49,24 @@ function UserDashboard() {
         image: storedProfile.image || profilePicUrl
       }));
     }
+  
+    // Fetch shoes from the database
+    const fetchShoes = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'shoeupload'));
+        const shoesData = [];
+        querySnapshot.forEach((doc) => {
+          shoesData.push({ id: doc.id, ...doc.data() });
+        });
+        setShoes(shoesData);
+      } catch (error) {
+        console.error('Error fetching shoes: ', error);
+      }
+    };
 
-    // Dummy data for testing
-    const dummyShoes = [
-      { id: 1, title: "Nike Air Force 1", description: "Classic sneaker", brand: "Nike", size: 9, gender: "Male", condition: "New", price: 100, imageURL: '' },
-      { id: 2, title: "Adidas Superstar", description: "Iconic shell-toe sneaker", brand: "Adidas", size: 8, gender: "Female", condition: "Used", price: 80, imageURL: '' },
-      // Add more shoes as needed
-    ];
-    setShoes(dummyShoes);
+    fetchShoes(); // Load shoes
+
+    fetchReviews(); // Load reviews
   }, []);
 
   // Handle edit button click
@@ -119,26 +135,43 @@ function UserDashboard() {
   };
 
   // Handle shoe post submission
-  const handleShoePost = () => {
+  const handleShoePost = async () => {
     const { title, description, brand, size, gender, condition, price, image } = shoeFormData;
     if (title.trim() === '' || description.trim() === '' || brand.trim() === '' || size.trim() === '' || gender.trim() === '' || condition.trim() === '' || price.trim() === '') {
       alert('Please provide all shoe details.');
       return;
     }
 
-    const newShoe = {
-      id: shoes.length + 1,
-      title,
-      description,
-      brand,
-      size,
-      gender,
-      condition,
-      price,
-      imageURL: image ? URL.createObjectURL(image) : '' // Set the uploaded image URL if available
-    };
+    try {
+      const docRef = await addDoc(collection(db, 'shoeupload'), {
+        title,
+        description,
+        brand,
+        size,
+        gender,
+        condition,
+        price,
+        imageURL: image ? URL.createObjectURL(image) : '' // Set the uploaded image URL if available
+      });
+      console.log('Document written with ID: ', docRef.id);
 
-    setShoes(prevShoes => [...prevShoes, newShoe]);
+      // Add the posted shoe to the local state for immediate display
+      const newShoe = {
+        id: docRef.id,
+        title,
+        description,
+        brand,
+        size,
+        gender,
+        condition,
+        price,
+        imageURL: image ? URL.createObjectURL(image) : ''
+      };
+      setShoes(prevShoes => [...prevShoes, newShoe]);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+
     setShoeFormData({
       title: '',
       description: '',
@@ -153,11 +186,67 @@ function UserDashboard() {
     closePopup();
   };
 
+  // Handle opening the review popup
+  const openReviewPopup = () => {
+    setIsReviewPopupOpen(true);
+  };
+
+  // Handle closing the review popup
+  const closeReviewPopup = () => {
+    setIsReviewPopupOpen(false);
+  };
+
+  // Handle user review submission
+  const handleReviewSubmit = async () => {
+    try {
+      await addDoc(collection(db, 'user_reviews'), {
+        userId: userProfile.username, // Assuming username is the user ID
+        reviewerName: 'Logged In User', // Change this to the actual reviewer's name
+        rating: rating,
+        reviewText: review
+      });
+
+      // Update user profile with the new review
+      const updatedRating = (userProfile.rating + parseInt(rating)) / 2;
+      setUserProfile((prevProfile) => ({
+        ...prevProfile,
+        rating: updatedRating
+      }));
+
+      // Fetch updated reviews
+      fetchReviews();
+
+      console.log('Review submitted successfully.');
+    } catch (error) {
+      console.error('Error adding review: ', error);
+    }
+  };
+
+  // Fetch reviews for the user
+  const fetchReviews = async () => {
+    const querySnapshot = await getDocs(collection(db, 'user_reviews'));
+    const reviewsData = [];
+    querySnapshot.forEach((doc) => {
+      reviewsData.push(doc.data());
+    });
+    setReviews(reviewsData);
+  };
+
   // Navigate to sign up page
   const goToSignUp = () => navigate('/createaccount');
 
   // Navigate to login page
   const goToLogin = () => navigate('/login');
+
+  // Open review form popup
+  const openReviewForm = () => {
+    setIsReviewFormOpen(true);
+  };
+
+  // Close review form popup
+  const closeReviewForm = () => {
+    setIsReviewFormOpen(false);
+  };
 
   return (
     <div className="dashboard-root">
@@ -190,7 +279,7 @@ function UserDashboard() {
               // Profile display section
               <>
                 <h2>{userProfile.username}</h2>
-                <span className="rating">* * * * * ({userProfile.rating})</span>
+                <span className="rating" onClick={openReviewPopup}>* * * * * ({userProfile.rating})</span>
                 <div className="social-counts">
                   <Link to="/followers">{userProfile.followers} Followers</Link>
                   <span> · </span>
@@ -210,6 +299,7 @@ function UserDashboard() {
                 <>
                   <button onClick={handleEdit}>Edit Profile</button>
                   <button onClick={openPopup}>Post</button>
+                  <button onClick={openReviewForm}>Leave a Review</button>
                 </>
               )}
               {/* Tab buttons */}
@@ -241,21 +331,53 @@ function UserDashboard() {
         </div>
       )}
 
-      {/* Render shoes under the "All" tab */}
-      {activeTab === 'All' && (
-        <div className="shoes-container">
-          {shoes.filter(shoe => shoe.title.trim() !== '' && shoe.description.trim() !== '').map(shoe => (
-            <div key={shoe.id} className="shoe-item">
-              <h3>{shoe.title}</h3>
-              <p>{shoe.description}</p>
-              <img src={shoe.imageURL} alt="Shoe" /> {/* Display shoe image */}
-              <p>Brand: {shoe.brand}</p>
-              <p>Size: {shoe.size}</p>
-              <p>Gender: {shoe.gender}</p>
-              <p>Condition: {shoe.condition}</p>
-              <p>Price: ${shoe.price}</p>
+      {/* Review form popup */}
+      {isReviewFormOpen && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2>Leave a Review</h2>
+            <textarea placeholder="Write your review here..." value={review} onChange={(e) => setReview(e.target.value)}></textarea>
+            <input type="number" placeholder="Rating (1-5)" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} />
+            <button onClick={closeReviewForm}>Cancel</button>
+            <button onClick={handleReviewSubmit}>Submit</button>
+          </div>
+        </div>
+      )}
+
+    {/* Render shoes under the "All" tab */}
+{activeTab === 'All' && (
+  <div className="shoes-container">
+    {shoes.filter(shoe => shoe.title && shoe.description).map(shoe => (
+      <div key={shoe.id} className="shoe-item">
+        <h3>{shoe.title}</h3>
+        <p>{shoe.description}</p>
+        <img src={shoe.imageURL} alt="Shoe" /> {/* Display shoe image */}
+        <p>Brand: {shoe.brand}</p>
+        <p>Size: {shoe.size}</p>
+        <p>Gender: {shoe.gender}</p>
+        <p>Condition: {shoe.condition}</p>
+        <p>Price: ${shoe.price}</p>
+      </div>
+    ))}
+  </div>
+)}
+
+      {/* Review popup */}
+      {isReviewPopupOpen && (
+        <div className="popup">
+          <div className="popup-inner">
+            <button onClick={closeReviewPopup}>Close</button>
+            <div className="reviews-container">
+              <h3>User Reviews</h3>
+              {reviews.map((review, index) => (
+                <div key={index} className="review-item">
+                  <p className="reviewer-name">{review.reviewerName}</p>
+                  <p className="review-rating">Rating: {review.rating}</p>
+                  <p className="review-text">Review: {review.reviewText}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       )}
     </div>
