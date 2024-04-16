@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import ReactDOM from 'react-dom'; // Import ReactDOM
+import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import ReactDOM from 'react-dom';
 import UserHome from '../Home/user_HomePage.jsx';
 import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
@@ -11,14 +10,42 @@ import hidePasswordIcon from '../../assets/hidepassword.png';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
+
 import { auth } from '/Users/2018v/OneDrive/Documents/Sole-Swap/Sole-Swap/src/firebase.js';
+
 
 
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
-  const [error, setError] = useState(null); // State for handling errors
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Set session persistence
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        console.log('Session persistence set successfully.');
+      })
+      .catch((error) => {
+        console.error('Error setting session persistence:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Check authentication state on component mount
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in
+        renderHomePageForLoggedInUser();
+      }
+    });
+
+    return () => {
+      // Clean up the listener when the component unmounts
+      unsubscribe();
+    };
+  }, []);
 
   function handleCredentials(e) {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -38,21 +65,13 @@ function Login() {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setError(errorMessage); // Set error state
+        setError(errorMessage);
         console.error('Login error:', errorMessage);
       });
   }
 
-
   function renderHomePageForLoggedInUser() {
-    // Check if the user is logged in
-    const currentUser = auth.currentUser;
-    if (currentUser) {
-      // User is logged in, render the home page for logged-in users
-      // You can navigate to a new page, render a component, or update the UI accordingly
-      // For example, you can render a component that represents the home page
-      ReactDOM.createRoot(document.getElementById('root')).render(<UserHome />);
-    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<UserHome />);
   }
 
   return (
@@ -98,14 +117,6 @@ function Login() {
           />
         </div>
 
-        <div className="login-utilities">
-          <label className="remember-me">
-            <input type="checkbox" />
-            Remember me
-          </label>
-          <Link to="/forgot-password" className="forgot-password-link">Forgot password?</Link>
-        </div>
-
         {/* Display error message if there is an error */}
         {error && <p>{error}</p>}
 
@@ -117,5 +128,3 @@ function Login() {
 }
 
 export default Login;
-
-
