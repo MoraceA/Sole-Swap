@@ -29,7 +29,15 @@ function Womens() {
 
   return (
     <div>
-      <Link to="/">Go to Home Page</Link>
+        <nav>
+        <ul>
+          <li><a href="/women's">Women's</a></li>
+          <li><a href="/mens">Men's</a></li>
+          <li><a href="/kid's">Kids</a></li>
+          <li><a href="/brands">Brands</a></li>
+        </ul>
+      </nav>
+      <Link to="/userhome"> Home</Link>
       <h2>Women's Shoes</h2>
       {loading ? (
         <p>Loading...</p>
