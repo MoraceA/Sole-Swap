@@ -11,7 +11,7 @@ import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
 
-import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 
 
 
@@ -66,7 +66,7 @@ function Login() {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
-        console.error('Login error:', errorMessage);
+        console.error('Incorrect Password', errorMessage);
       });
   }
 

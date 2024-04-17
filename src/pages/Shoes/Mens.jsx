@@ -6,6 +6,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 function Mens() {
   const [mensShoes, setMensShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     setLoading(true);
@@ -27,8 +28,18 @@ function Mens() {
     fetchMensShoes();
   }, []);
 
+
+
   return (
     <div>
+       <nav>
+        <ul>
+          <li><a href="/women's">Women's</a></li>
+          <li><a href="/mens">Men's</a></li>
+          <li><a href="/kid's">Kids</a></li>
+          <li><a href="/brands">Brands</a></li>
+        </ul>
+      </nav>
       <Link to="/">Go to Home Page</Link>
       <h2>Men's Shoes</h2>
       {loading ? (
