@@ -37,7 +37,7 @@ function Womens() {
           <li><a href="/brands">Brands</a></li>
         </ul>
       </nav>
-      <Link to="/">Go to Home Page</Link>
+      <Link to="/userhome"> Home</Link>
       <h2>Women's Shoes</h2>
       {loading ? (
         <p>Loading...</p>

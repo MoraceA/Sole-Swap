@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import ReactDOM from 'react-dom';
-import UserHome from '../Home/user_HomePage.jsx';
+import Home from '../Home/user_HomePage.jsx';
 import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
 import showPasswordIcon from '../../assets/showpassword.png';
@@ -71,7 +71,7 @@ function Login() {
   }
 
   function renderHomePageForLoggedInUser() {
-    ReactDOM.createRoot(document.getElementById('root')).render(<UserHome />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<Home />);
   }
 
   return (
