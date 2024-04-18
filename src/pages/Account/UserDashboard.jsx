@@ -254,9 +254,7 @@ function UserDashboard() {
         <Link to="/">
           <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
         </Link>
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
+       
         <div className="sign-up-login">
           <button>❤️</button>
           <button onClick={goToSignUp}>Sign Up</button>
