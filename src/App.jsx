@@ -16,6 +16,7 @@ import SearchResults from '../src/pages/search/SearchResults.jsx';
 import ProfileForm from '../src/pages/Account/ProfileForm.jsx'
 import LikedShoes from '../src/pages/search/likedShoes.jsx';
 import Description from '../src/pages/Shoes/Description.jsx';
+import Messages from '../src/pages/Home/Messages.jsx';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/UserDashboard" element={<UserDashboard/>} />
         <Route exact path="/likedShoes" element={<LikedShoes />} />
         <Route exact path="/description" element={<Description />} />
+        <Route exact path="/messages" element={<Messages />} /> 
       </Routes>
     </Router>
   );

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '../../firebase'; // Adjust based on your directory structure
+import { db } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 function UserDashboard() {
   const navigate = useNavigate();
 
-  // State variables
   const [userProfile, setUserProfile] = useState({
     username: "ARV247",
     rating: 0,
@@ -17,6 +16,7 @@ function UserDashboard() {
     description: "Open to trading. Message me if you find something you like.",
     image: profilePicUrl 
   });
+
   const [activeTab, setActiveTab] = useState('All');
   const [isEditing, setIsEditing] = useState(false);
   const [editedUserProfile, setEditedUserProfile] = useState({});
@@ -35,12 +35,25 @@ function UserDashboard() {
   });
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
-  const [reviews, setReviews] = useState([]); // State variable for reviews
-  const [isReviewPopupOpen, setIsReviewPopupOpen] = useState(false); // State variable to control review popup visibility
-  const [isReviewFormOpen, setIsReviewFormOpen] = useState(false); // State variable to control review form visibility
+  const [reviews, setReviews] = useState([]);
+  const [isReviewPopupOpen, setIsReviewPopupOpen] = useState(false);
+  const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
+
+  // Pagination logic
+  const [reviewsPerPage] = useState(3); 
+  const [currentPage, setCurrentPage] = useState(1); 
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(reviews.length / reviewsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  // Function to change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
-    // Load user profile from local storage
     const storedProfile = JSON.parse(localStorage.getItem('userProfile'));
     if (storedProfile) {
       setUserProfile(prevState => ({
@@ -49,8 +62,7 @@ function UserDashboard() {
         image: storedProfile.image || profilePicUrl
       }));
     }
-  
-    // Fetch shoes from the database
+
     const fetchShoes = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'shoeupload'));
@@ -64,18 +76,15 @@ function UserDashboard() {
       }
     };
 
-    fetchShoes(); // Load shoes
-
-    fetchReviews(); // Load reviews
+    fetchShoes();
+    fetchReviews();
   }, []);
 
-  // Handle edit button click
   const handleEdit = () => {
     setIsEditing(true);
     setEditedUserProfile(userProfile);
   };
 
-  // Handle save button click
   const handleSave = () => {
     const updatedProfile = { ...editedUserProfile };
     if (newProfilePic) {
@@ -86,12 +95,14 @@ function UserDashboard() {
     setIsEditing(false);
   };
 
-  // Handle cancel button click
   const handleCancel = () => {
     setIsEditing(false);
   };
 
-  // Handle changes in profile edit form fields
+  const handleMessage = () => {
+    navigate('/messages');
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedUserProfile(prevState => ({
@@ -100,23 +111,19 @@ function UserDashboard() {
     }));
   };
 
-  // Handle image upload for profile picture
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setNewProfilePic(file);
   };
 
-  // Open the shoe post popup
   const openPopup = () => {
     setIsPopupOpen(true);
   };
 
-  // Close the shoe post popup
   const closePopup = () => {
     setIsPopupOpen(false);
   };
 
-  // Handle shoe form input changes
   const handleShoeFormChange = (e) => {
     const { name, value } = e.target;
     setShoeFormData(prevState => ({
@@ -125,7 +132,6 @@ function UserDashboard() {
     }));
   };
 
-  // Handle image upload for shoe
   const handleShoeImageChange = (e) => {
     const file = e.target.files[0];
     setShoeFormData(prevState => ({
@@ -134,7 +140,6 @@ function UserDashboard() {
     }));
   };
 
-  // Handle shoe post submission
   const handleShoePost = async () => {
     const { title, description, brand, size, gender, condition, price, image } = shoeFormData;
     if (title.trim() === '' || description.trim() === '' || brand.trim() === '' || size.trim() === '' || gender.trim() === '' || condition.trim() === '' || price.trim() === '') {
@@ -151,11 +156,10 @@ function UserDashboard() {
         gender,
         condition,
         price,
-        imageURL: image ? URL.createObjectURL(image) : '' // Set the uploaded image URL if available
+        imageURL: image ? URL.createObjectURL(image) : ''
       });
       console.log('Document written with ID: ', docRef.id);
 
-      // Add the posted shoe to the local state for immediate display
       const newShoe = {
         id: docRef.id,
         title,
@@ -186,34 +190,29 @@ function UserDashboard() {
     closePopup();
   };
 
-  // Handle opening the review popup
   const openReviewPopup = () => {
     setIsReviewPopupOpen(true);
   };
 
-  // Handle closing the review popup
   const closeReviewPopup = () => {
     setIsReviewPopupOpen(false);
   };
 
-  // Handle user review submission
   const handleReviewSubmit = async () => {
     try {
       await addDoc(collection(db, 'user_reviews'), {
-        userId: userProfile.username, // Assuming username is the user ID
-        reviewerName: 'Logged In User', // Change this to the actual reviewer's name
+        userId: userProfile.username,
+        reviewerName: 'Logged In User',
         rating: rating,
         reviewText: review
       });
 
-      // Update user profile with the new review
       const updatedRating = (userProfile.rating + parseInt(rating)) / 2;
       setUserProfile((prevProfile) => ({
         ...prevProfile,
         rating: updatedRating
       }));
 
-      // Fetch updated reviews
       fetchReviews();
 
       console.log('Review submitted successfully.');
@@ -222,7 +221,6 @@ function UserDashboard() {
     }
   };
 
-  // Fetch reviews for the user
   const fetchReviews = async () => {
     const querySnapshot = await getDocs(collection(db, 'user_reviews'));
     const reviewsData = [];
@@ -232,18 +230,14 @@ function UserDashboard() {
     setReviews(reviewsData);
   };
 
-  // Navigate to sign up page
   const goToSignUp = () => navigate('/createaccount');
 
-  // Navigate to login page
   const goToLogin = () => navigate('/login');
 
-  // Open review form popup
   const openReviewForm = () => {
     setIsReviewFormOpen(true);
   };
 
-  // Close review form popup
   const closeReviewForm = () => {
     setIsReviewFormOpen(false);
   };
@@ -254,13 +248,12 @@ function UserDashboard() {
         <Link to="/">
           <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
         </Link>
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
+       
         <div className="sign-up-login">
           <button>❤️</button>
           <button onClick={goToSignUp}>Sign Up</button>
           <button onClick={goToLogin}>Login</button>
+          <button onClick={handleMessage}>Message</button>
         </div>
       </div>
 
@@ -268,7 +261,6 @@ function UserDashboard() {
         <div className="profile-section">
           <img src={isEditing ? editedUserProfile.image : userProfile.image} alt="Profile" className="profile-pic" />
           <div className="profile-info">
-            {/* Profile editing section */}
             {isEditing ? (
               <>
                 <input type="text" name="username" value={editedUserProfile.username} onChange={handleChange} />
@@ -276,7 +268,6 @@ function UserDashboard() {
                 <input type="file" accept="image/*" onChange={handleImageChange} />
               </>
             ) : (
-              // Profile display section
               <>
                 <h2>{userProfile.username}</h2>
                 <span className="rating" onClick={openReviewPopup}>* * * * * ({userProfile.rating})</span>
@@ -288,7 +279,6 @@ function UserDashboard() {
                 <p className="description">{userProfile.description}</p>
               </>
             )}
-            {/* Profile action buttons */}
             <div className="profile-buttons">
               {isEditing ? (
                 <>
@@ -302,7 +292,6 @@ function UserDashboard() {
                   <button onClick={openReviewForm}>Leave a Review</button>
                 </>
               )}
-              {/* Tab buttons */}
               <button className={activeTab === 'All' ? 'active' : ''} onClick={() => setActiveTab('All')}>All</button>
               <button className={activeTab === 'Trading' ? 'active' : ''} onClick={() => setActiveTab('Trading')}>Trading</button>
               <button className={activeTab === 'Traded' ? 'active' : ''} onClick={() => setActiveTab('Traded')}>Traded</button>
@@ -312,7 +301,6 @@ function UserDashboard() {
         </div>
       </div>
 
-      {/* Shoe post popup */}
       {isPopupOpen && (
         <div className="popup">
           <div className="popup-inner">
@@ -331,7 +319,6 @@ function UserDashboard() {
         </div>
       )}
 
-      {/* Review form popup */}
       {isReviewFormOpen && (
         <div className="popup">
           <div className="popup-inner">
@@ -344,38 +331,43 @@ function UserDashboard() {
         </div>
       )}
 
-    {/* Render shoes under the "All" tab */}
-{activeTab === 'All' && (
-  <div className="shoes-container">
-    {shoes.filter(shoe => shoe.title && shoe.description).map(shoe => (
-      <div key={shoe.id} className="shoe-item">
-        <h3>{shoe.title}</h3>
-        <p>{shoe.description}</p>
-        <img src={shoe.imageURL} alt="Shoe" /> {/* Display shoe image */}
-        <p>Brand: {shoe.brand}</p>
-        <p>Size: {shoe.size}</p>
-        <p>Gender: {shoe.gender}</p>
-        <p>Condition: {shoe.condition}</p>
-        <p>Price: ${shoe.price}</p>
-      </div>
-    ))}
-  </div>
-)}
+      {activeTab === 'All' && (
+        <div className="shoes-container">
+          {shoes.filter(shoe => shoe.title && shoe.description).map(shoe => (
+            <div key={shoe.id} className="shoe-item">
+              <h3>{shoe.title}</h3>
+              <p>{shoe.description}</p>
+              <img src={shoe.imageURL} alt="Shoe" />
+              <p>Brand: {shoe.brand}</p>
+              <p>Size: {shoe.size}</p>
+              <p>Gender: {shoe.gender}</p>
+              <p>Condition: {shoe.condition}</p>
+              <p>Price: ${shoe.price}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
-      {/* Review popup */}
       {isReviewPopupOpen && (
         <div className="popup">
           <div className="popup-inner">
             <button onClick={closeReviewPopup}>Close</button>
             <div className="reviews-container">
               <h3>User Reviews</h3>
-              {reviews.map((review, index) => (
+              {currentReviews.map((review, index) => (
                 <div key={index} className="review-item">
                   <p className="reviewer-name">{review.reviewerName}</p>
                   <p className="review-rating">Rating: {review.rating}</p>
                   <p className="review-text">Review: {review.reviewText}</p>
                 </div>
               ))}
+              <div className="pagination">
+                {pageNumbers.map(number => (
+                  <button key={number} onClick={() => paginate(number)}>
+                    {number}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

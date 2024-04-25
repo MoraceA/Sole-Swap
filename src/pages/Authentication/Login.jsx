@@ -11,7 +11,7 @@ import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
 
-import { auth } from '/Users/2018v/OneDrive/Documents/Sole-Swap/Sole-Swap/src/firebase.js';
+import { auth } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';
 
 
 
