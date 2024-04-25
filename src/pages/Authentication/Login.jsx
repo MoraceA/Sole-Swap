@@ -11,7 +11,7 @@ import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import './Login.css';
 
 
-import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { auth } from '../../firebase';
 
 
 

@@ -7,7 +7,7 @@ import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; 
 import { db } from '../../firebase'; // Adjust based on your directory structure
-import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { auth } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore'; // Firestore imports
 
 
