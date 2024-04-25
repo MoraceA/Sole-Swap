@@ -272,9 +272,6 @@ function UserDashboard() {
                 <h2>{userProfile.username}</h2>
                 <span className="rating" onClick={openReviewPopup}>* * * * * ({userProfile.rating})</span>
                 <div className="social-counts">
-                  <Link to="/followers">{userProfile.followers} Followers</Link>
-                  <span> · </span>
-                  <Link to="/following">{userProfile.following} Following</Link>
                 </div>
                 <p className="description">{userProfile.description}</p>
               </>

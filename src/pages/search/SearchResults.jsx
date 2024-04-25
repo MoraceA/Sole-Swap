@@ -83,8 +83,6 @@ function SearchResults() {
       <header className="search-header">
         <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" onClick={() => navigate('/')} />
         <div>
-          <button onClick={() => navigate('/signup')}>Sign Up</button>
-          <button onClick={() => navigate('/login')}>Login</button>
           <button onClick={navigateToLikedShoes}>❤️ ({likedShoes.length})</button>
         </div>
       </header>
