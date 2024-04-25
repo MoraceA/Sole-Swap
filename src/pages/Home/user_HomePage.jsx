@@ -123,7 +123,7 @@ function Homepage() {
       {/* Header Section */}
       <div className="header-content">
         <div>
-          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+          <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
         <div className="search-bar">

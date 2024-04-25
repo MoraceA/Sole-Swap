@@ -9,7 +9,7 @@ function AboutUs() {
       <div className="header-content">
         <div>
           <a href="/">
-            <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+            <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" />
           </a>
         </div>
        
