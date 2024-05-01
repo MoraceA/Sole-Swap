@@ -17,6 +17,7 @@ import ProfileForm from '../src/pages/Account/ProfileForm.jsx'
 import LikedShoes from '../src/pages/search/likedShoes.jsx';
 import Description from '../src/pages/Shoes/Description.jsx';
 import Messages from '../src/pages/Home/Messages.jsx';
+import TradePage from '../src/pages/Shoes/TradePage.jsx'
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
         <Route exact path="/likedShoes" element={<LikedShoes />} />
         <Route exact path="/description" element={<Description />} />
         <Route exact path="/messages" element={<Messages />} /> 
+        <Route exact path="/tradepage" element={<TradePage />} /> 
+
       </Routes>
     </Router>
   );

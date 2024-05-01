@@ -74,6 +74,11 @@ function SearchResults() {
     }
   };
 
+  const handleTrade = (shoeId) => {
+    const shoeToTrade = shoes.find(shoe => shoe.id === shoeId);
+    navigate('/tradepage', { state: { shoeToTrade } });
+  };
+
   const navigateToLikedShoes = () => {
     navigate('/likedShoes', { state: { likedShoes } });
   };
@@ -134,6 +139,7 @@ function SearchResults() {
               <p>Condition: {shoe.condition}</p>
               <p>Price: ${shoe.value}</p>
               <button onClick={() => handleLike(shoe.id)}>Like</button>
+              <button onClick={() => handleTrade(shoe.id)}>Trade</button>
             </div>
           )) : (!loading && <p>No results found for "{searchQuery}".</p>)}
         </div>
