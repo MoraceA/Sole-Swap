@@ -19,6 +19,8 @@ import Description from '../src/pages/Shoes/Description.jsx';
 import GetStarted from '../src/pages/Started/GetStarted.jsx';
 
 
+
+
 function App() {
   return (
     <Router>
@@ -41,6 +43,7 @@ function App() {
         <Route exact path="/likedShoes" element={<LikedShoes />} />
         <Route exact path="/description" element={<Description />} />
         <Route exact path="/GetStarted" element={<GetStarted />} />
+     
       </Routes>
     </Router>
   );

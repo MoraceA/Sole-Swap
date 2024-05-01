@@ -11,8 +11,7 @@ import soleSwapLogo from '../../assets/SOLE SWAP.png';
 import './Login.css';
 
 
-import { auth } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
-
+import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 
 
 
@@ -21,6 +20,9 @@ function Login() {
   const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
 
+
+
+  //setting session peristence so user can remain logged in 
   useEffect(() => {
     // Set session persistence
     setPersistence(auth, browserSessionPersistence)
@@ -29,8 +31,14 @@ function Login() {
       })
       .catch((error) => {
         console.error('Error setting session persistence:', error);
+        //const errorCode = error.code; ?????
+        // const errorMessage = error.message; ?????
       });
   }, []);
+
+
+
+
 
   useEffect(() => {
     // Check authentication state on component mount
@@ -73,6 +81,13 @@ function Login() {
   function renderHomePageForLoggedInUser() {
     ReactDOM.createRoot(document.getElementById('root')).render(<Home />);
   }
+
+
+
+
+
+
+//return statements
 
   return (
     <div id="login-root">
