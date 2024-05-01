@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-import ReactDOM from 'react-dom';
+import { useNavigate } from 'react-router-dom'; 
 import Home from '../Home/user_HomePage.jsx';
 import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
@@ -16,6 +16,7 @@ import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 
 
 function Login() {
+  const navigate = useNavigate(); 
   const [showPassword, setShowPassword] = useState(false);
   const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
@@ -78,10 +79,10 @@ function Login() {
       });
   }
 
-  function renderHomePageForLoggedInUser() {
-    ReactDOM.createRoot(document.getElementById('root')).render(<Home />);
-  }
-
+  const renderHomePageForLoggedInUser = () => {
+    // Redirect to profile page
+    navigate("/userhome");
+  };
 
 
 

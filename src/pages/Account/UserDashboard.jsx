@@ -232,8 +232,7 @@ function UserDashboard() {
     setReviews(reviewsData);
   };
 
-  // Navigate to sign up page
-  const goToSignUp = () => navigate('/createaccount');
+
 
   // Navigate to login page
   const goToLogin = () => navigate('/login');
@@ -257,7 +256,6 @@ function UserDashboard() {
        
         <div className="sign-up-login">
           <button>❤️</button>
-          <button onClick={goToSignUp}>Sign Up</button>
           <button onClick={goToLogin}>Login</button>
         </div>
       </div>
