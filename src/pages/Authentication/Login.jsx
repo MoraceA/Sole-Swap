@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import ReactDOM from 'react-dom';
-import UserHome from '../Home/user_HomePage.jsx';
+import Home from '../Home/user_HomePage.jsx';
 import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
 import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
-import soleSwapLogo from '../../assets/SOLE SWAP.png';
+import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import './Login.css';
 
 
-import { auth } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';
+import { auth } from '../../firebase';
+
 
 
 
@@ -66,12 +67,12 @@ function Login() {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
-        console.error('Login error:', errorMessage);
+        console.error('Incorrect Password', errorMessage);
       });
   }
 
   function renderHomePageForLoggedInUser() {
-    ReactDOM.createRoot(document.getElementById('root')).render(<UserHome />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<Home />);
   }
 
   return (

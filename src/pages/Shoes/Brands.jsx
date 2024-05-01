@@ -50,6 +50,14 @@ function Brands() {
 
   return (
     <div>
+        <nav>
+        <ul>
+          <li><a href="/women's">Women's</a></li>
+          <li><a href="/mens">Men's</a></li>
+          <li><a href="/kid's">Kids</a></li>
+          <li><a href="/brands">Brands</a></li>
+        </ul>
+      </nav>
       <Link to="/">Go to Home Page</Link>
       <h2>Brands</h2>
       <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>

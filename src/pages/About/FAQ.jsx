@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FAQ.css';
-import soleSwapLogo from '../../assets/SOLE SWAP.png';
+import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);

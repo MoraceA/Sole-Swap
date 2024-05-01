@@ -7,6 +7,7 @@ function Mens() {
   const [mensShoes, setMensShoes] = useState([]);
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     setLoading(true);
@@ -28,6 +29,7 @@ function Mens() {
     fetchMensShoes();
   }, []);
 
+
   const handleLike = (shoeId) => {
     const shoeToAdd = mensShoes.find(shoe => shoe.id === shoeId);
     if (!likedShoes.some(shoe => shoe.id === shoeId)) {
@@ -35,8 +37,17 @@ function Mens() {
     }
   };
 
+
   return (
     <div>
+       <nav>
+        <ul>
+          <li><a href="/women's">Women's</a></li>
+          <li><a href="/mens">Men's</a></li>
+          <li><a href="/kid's">Kids</a></li>
+          <li><a href="/brands">Brands</a></li>
+        </ul>
+      </nav>
       <Link to="/">Go to Home Page</Link>
       <h2>Men's Shoes</h2>
       <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>

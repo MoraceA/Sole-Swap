@@ -10,7 +10,7 @@ function LikedShoes() {
     <div className="liked-shoes-page">
       <div className="header">
         <Link to="/">
-          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" /> {/* Update your logo path */}
+          <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" /> {/* Update your logo path */}
         </Link>
         <h1>Liked Shoes</h1>
       </div>

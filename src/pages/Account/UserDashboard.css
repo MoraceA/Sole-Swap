@@ -26,7 +26,8 @@ body, html {
 }
 
 .logo {
-  height: 80px; 
+  height: 100px; 
+  width: auto;
 }
 
 .search-bar input {
@@ -179,5 +180,39 @@ body, html {
 }
 
 .popup-inner button:hover {
+  background-color: #ddd;
+}
+
+.profile-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-section input[type="text"],
+.profile-section textarea,
+.profile-section input[type="file"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.profile-section input[type="file"] {
+  border: none;
+  padding: 0;
+}
+
+.profile-section button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-section button:hover {
   background-color: #ddd;
 }

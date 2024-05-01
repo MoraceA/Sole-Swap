@@ -1,7 +1,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import './Contact.css';
-import soleSwapLogo from '../../assets/SOLE SWAP.png';
+import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import { Link } from 'react-router-dom';
 
 function Contact() {
