@@ -95,6 +95,7 @@ function Homepage() {
           // An error happened.
           console.error('Error signing out:', error);
         });
+
     }
   }
 
