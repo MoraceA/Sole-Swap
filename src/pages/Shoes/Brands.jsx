@@ -5,6 +5,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 function Brands() {
   const [brandsData, setBrandsData] = useState([]);
+  const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,6 +27,13 @@ function Brands() {
     };
     fetchBrandsData();
   }, []);
+
+  const handleLike = (shoeId) => {
+    const shoeToAdd = brandsData.find(shoe => shoe.id === shoeId);
+    if (!likedShoes.some(shoe => shoe.id === shoeId)) {
+      setLikedShoes([...likedShoes, shoeToAdd]);
+    }
+  };
 
   const groupShoesByBrand = () => {
     const groupedBrands = {};
@@ -52,6 +60,7 @@ function Brands() {
       </nav>
       <Link to="/">Go to Home Page</Link>
       <h2>Brands</h2>
+      <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -69,6 +78,7 @@ function Brands() {
                     <p>Gender: {shoe.gender}</p>
                     <p>Condition: {shoe.condition}</p>
                     <p>Price: ${shoe.value}</p>
+                    <button onClick={() => handleLike(shoe.id)}>Like</button>
                   </div>
                 ))}
               </div>

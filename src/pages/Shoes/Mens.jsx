@@ -5,6 +5,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 
 function Mens() {
   const [mensShoes, setMensShoes] = useState([]);
+  const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
   
 
@@ -29,6 +30,13 @@ function Mens() {
   }, []);
 
 
+  const handleLike = (shoeId) => {
+    const shoeToAdd = mensShoes.find(shoe => shoe.id === shoeId);
+    if (!likedShoes.some(shoe => shoe.id === shoeId)) {
+      setLikedShoes([...likedShoes, shoeToAdd]);
+    }
+  };
+
 
   return (
     <div>
@@ -42,6 +50,7 @@ function Mens() {
       </nav>
       <Link to="/">Go to Home Page</Link>
       <h2>Men's Shoes</h2>
+      <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -54,6 +63,7 @@ function Mens() {
               <p>Size: {shoe.size}</p>
               <p>Condition: {shoe.condition}</p>
               <p>Price: ${shoe.value}</p>
+              <button onClick={() => handleLike(shoe.id)}>Like</button>
             </div>
           ))}
         </div>

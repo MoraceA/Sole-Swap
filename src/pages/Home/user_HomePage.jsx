@@ -6,11 +6,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; 
-import { db } from '../../firebase'; // Adjust based on your directory structure
+import { db } from '../../firebase'; //fixed in another commit 
 import { auth } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore'; // Firestore imports
-
-
 
 
 
