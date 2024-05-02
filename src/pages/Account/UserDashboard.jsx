@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';   //   ../../Firebase file import 
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { db } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 
+//userdash 
 function UserDashboard() {
   const navigate = useNavigate();
 
@@ -62,10 +63,11 @@ function UserDashboard() {
         image: storedProfile.image || profilePicUrl
       }));
     }
-
+//fetch shoes 
     const fetchShoes = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'shoeupload'));
+        const q = query(collection(db, 'shoeupload'), where("userId", "==", userProfile.username));
+        const querySnapshot = await getDocs(q);
         const shoesData = [];
         querySnapshot.forEach((doc) => {
           shoesData.push({ id: doc.id, ...doc.data() });
@@ -78,7 +80,7 @@ function UserDashboard() {
 
     fetchShoes();
     fetchReviews();
-  }, []);
+  }, [userProfile.username]); // Trigger useEffect when userProfile.username changes
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -149,6 +151,7 @@ function UserDashboard() {
 
     try {
       const docRef = await addDoc(collection(db, 'shoeupload'), {
+        userId: userProfile.username, // Associate shoe with the user
         title,
         description,
         brand,
@@ -162,6 +165,7 @@ function UserDashboard() {
 
       const newShoe = {
         id: docRef.id,
+        userId: userProfile.username,
         title,
         description,
         brand,
@@ -220,7 +224,7 @@ function UserDashboard() {
       console.error('Error adding review: ', error);
     }
   };
-
+//fetch reviews 
   const fetchReviews = async () => {
     const querySnapshot = await getDocs(collection(db, 'user_reviews'));
     const reviewsData = [];
@@ -231,7 +235,7 @@ function UserDashboard() {
   };
 
 
-  const goToSignUp = () => navigate('/createaccount');    //check this 
+  const goToSignUp = () => navigate('/createaccount');    
 
 
   const goToLogin = () => navigate('/login');
@@ -253,7 +257,7 @@ function UserDashboard() {
        
         <div className="sign-up-login">
           <button>❤️</button>
-          <button onClick={goToLogin}>Login</button>
+          <button onClick={goToLogin}>Log Out</button>
           <button onClick={handleMessage}>Message</button>
         </div>
       </div>
@@ -375,3 +379,4 @@ function UserDashboard() {
 }
 
 export default UserDashboard;
+
