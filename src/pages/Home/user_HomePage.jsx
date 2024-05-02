@@ -89,15 +89,18 @@ function Homepage() {
         .then(() => {
           // Sign-out successful.
           console.log('User signed out successfully');
-          history.push('/GetStarted');
+          renderHomePageForLoggedOutUser();
         })
         .catch((error) => {
           // An error happened.
           console.error('Error signing out:', error);
         });
-
-    }
+      } 
   }
+  const renderHomePageForLoggedOutUser = () => {
+    // Redirect to profile page
+    navigate("/");
+  };
 
   const carouselSettings = {
     dots: true,
@@ -110,12 +113,6 @@ function Homepage() {
   const handleStartTradingClick = () => {
     navigate('/SearchResults');
   };
-
-
-
-
-
-
 
 
 
