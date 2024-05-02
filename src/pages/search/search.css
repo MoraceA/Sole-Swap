@@ -12,7 +12,7 @@
 
 .logo {
   width: auto; 
-  height: 50px; 
+  height: 70%; 
   cursor: pointer;
 }
 
@@ -83,7 +83,7 @@
 
 .trade-button {
   background-color: #008CBA; 
-
+}
 @media (max-width: 768px) {
   .shoes-container {
     flex-direction: column;

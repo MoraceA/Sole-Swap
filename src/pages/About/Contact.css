@@ -4,11 +4,11 @@
   align-items: center;
   padding: 20px;
 }
-
+/*
 .logo {
   max-width: 100px;
 }
-
+*/
 .search-bar input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;

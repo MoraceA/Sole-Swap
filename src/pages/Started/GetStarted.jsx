@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import '/Users/ariana/Documents/Sole-Swap/src/firebase.js'; // Import your CSS file for styling
+
+import '../../firebase'; // Import your CSS file for styling
+
 
 function GetStarted() {
   return (

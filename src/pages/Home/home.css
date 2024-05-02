@@ -47,11 +47,14 @@ nav ul li a {
   text-decoration: none;
   color: black; /* Set text color to black */
 }
-  
+
+/*
 .logo {
   height: 150px;
   width: 150px;
 }
+*/
+
   /* Search bar style */
 .search-bar {
   position: relative;

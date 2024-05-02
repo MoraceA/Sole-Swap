@@ -6,11 +6,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; 
-import { db } from '../../firebase'; // Adjust based on your directory structure
-import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+
+import { db } from '../../firebase'; //fixed in another commit 
+import { auth } from '../../firebase';
+
 import { collection, getDocs } from 'firebase/firestore'; // Firestore imports
-
-
 
 
 
@@ -124,7 +124,7 @@ function Homepage() {
       {/* Header Section */}
       <div className="header-content">
         <div>
-          <img src="src/assets/SOLE SWAP.png" alt="Sole Swap Logo" className="logo" />
+          <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
         <div className="search-bar">

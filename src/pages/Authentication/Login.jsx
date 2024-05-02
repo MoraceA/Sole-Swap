@@ -7,12 +7,12 @@ import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
 import showPasswordIcon from '../../assets/showpassword.png';
 import hidePasswordIcon from '../../assets/hidepassword.png';
-import soleSwapLogo from '../../assets/SOLE SWAP.png';
+import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import './Login.css';
 
 
-import { auth } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 
+import { auth } from '../../firebase';
 
 
 function Login() {
