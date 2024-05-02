@@ -48,7 +48,7 @@ function Mens() {
           <li><a href="/brands">Brands</a></li>
         </ul>
       </nav>
-      <Link to="/">Go to Home Page</Link>
+      <Link to="/userhome">Go to Home Page</Link>
       <h2>Men's Shoes</h2>
       <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>
       {loading ? (

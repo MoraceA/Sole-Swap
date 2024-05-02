@@ -19,6 +19,9 @@ import Description from '../src/pages/Shoes/Description.jsx';
 import Messages from '../src/pages/Home/Messages.jsx';
 import TradePage from '../src/pages/Shoes/TradePage.jsx'
 import GetStarted from '../src/pages/Started/GetStarted.jsx';
+import Homepage from '../src/pages/Home/HomePage.jsx'
+
+
 
 
 
@@ -26,8 +29,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<GetStarted/>} />
-       {/* <Route path="/home" element={<Homepage />} /> */}
+       {/*} <Route exact path="/" element={<GetStarted/>} /> */}
+       <Route path="/" element={<Homepage/>} /> 
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/about" element={<AboutUs/>} />

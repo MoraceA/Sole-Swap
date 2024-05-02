@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';
+import { db } from '/Users/2018v/OneDrive/Documents/Sole-Swap/src/firebase.js';   //   ../../Firebase file import 
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 function UserDashboard() {
@@ -230,7 +230,9 @@ function UserDashboard() {
     setReviews(reviewsData);
   };
 
-  const goToSignUp = () => navigate('/createaccount');
+
+  const goToSignUp = () => navigate('/createaccount');    //check this 
+
 
   const goToLogin = () => navigate('/login');
 
@@ -251,7 +253,6 @@ function UserDashboard() {
        
         <div className="sign-up-login">
           <button>❤️</button>
-          <button onClick={goToSignUp}>Sign Up</button>
           <button onClick={goToLogin}>Login</button>
           <button onClick={handleMessage}>Message</button>
         </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, setPersistence, browserSessionPersistence, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-import ReactDOM from 'react-dom';
+import { useNavigate } from 'react-router-dom'; 
 import Home from '../Home/user_HomePage.jsx';
 import usernameIcon from '../../assets/username.png';
 import passwordIcon from '../../assets/password.png';
@@ -11,17 +11,19 @@ import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import './Login.css';
 
 
+
 import { auth } from '../../firebase';
 
 
-
-
-
 function Login() {
+  const navigate = useNavigate(); 
   const [showPassword, setShowPassword] = useState(false);
   const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
 
+
+
+  //setting session peristence so user can remain logged in 
   useEffect(() => {
     // Set session persistence
     setPersistence(auth, browserSessionPersistence)
@@ -30,8 +32,14 @@ function Login() {
       })
       .catch((error) => {
         console.error('Error setting session persistence:', error);
+        //const errorCode = error.code; ?????
+        // const errorMessage = error.message; ?????
       });
   }, []);
+
+
+
+
 
   useEffect(() => {
     // Check authentication state on component mount
@@ -71,9 +79,16 @@ function Login() {
       });
   }
 
-  function renderHomePageForLoggedInUser() {
-    ReactDOM.createRoot(document.getElementById('root')).render(<Home />);
-  }
+  const renderHomePageForLoggedInUser = () => {
+    // Redirect to profile page
+    navigate("/userhome");
+  };
+
+
+
+
+
+//return statements
 
   return (
     <div id="login-root">

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './CreateAccount.css';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CreateAccount = () => {
+  const navigate = useNavigate(); // Access navigate function
+
   const [userCredentials, setUserCredentials] = useState({
     firstname: '',
     lastname: '',
@@ -47,25 +50,31 @@ const CreateAccount = () => {
     // Clear error if validation passes
     setError("");
 
-    // Handle form submission logic here
+    // Call sign-up function
+    handleSignUp();
   };
 
-  const handleSignUp = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-  
+  const handleSignUp = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user); // Successfully signed up user
+      .then(() => {
+        // Successfully signed up
+        console.log("Successfully signed up user");
+        // Render profile page for logged in user
+        renderProfilePageForLoggedInUser();
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage); // Set error message
-        console.log(errorCode, errorMessage); // Log any errors
+        console.error('Error signing up:', errorMessage); // Log error
       });
   };
+
+  const renderProfilePageForLoggedInUser = () => {
+    // Redirect to profile page
+    navigate("/ProfileForm");
+  };
+
 
   return (
     <div className="createaccount">
@@ -106,4 +115,3 @@ const CreateAccount = () => {
 };
 
 export default CreateAccount;
-

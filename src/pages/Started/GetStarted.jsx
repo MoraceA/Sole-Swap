@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+
 import '../../firebase'; // Import your CSS file for styling
+
 
 function GetStarted() {
   return (
