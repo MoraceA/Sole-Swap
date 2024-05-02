@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 
 //userdash 
@@ -66,7 +66,7 @@ function UserDashboard() {
 //fetch shoes 
     const fetchShoes = async () => {
       try {
-        const q = query(collection(db, 'shoeupload'), where("userId", "==", userProfile.username));
+        const q = query(collection(db, 'shoedisplay'), where("userId", "==", userProfile.username));
         const querySnapshot = await getDocs(q);
         const shoesData = [];
         querySnapshot.forEach((doc) => {
@@ -150,7 +150,7 @@ function UserDashboard() {
     }
 
     try {
-      const docRef = await addDoc(collection(db, 'shoeupload'), {
+      const docRef = await addDoc(collection(db, 'shoedisplay'), {
         userId: userProfile.username, // Associate shoe with the user
         title,
         description,
@@ -256,7 +256,7 @@ function UserDashboard() {
         </Link>
        
         <div className="sign-up-login">
-          <button>❤️</button>
+
           <button onClick={goToLogin}>Log Out</button>
           <button onClick={handleMessage}>Message</button>
         </div>
