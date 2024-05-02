@@ -20,7 +20,7 @@ function Contact() {
     <div className="contact-page">
       <div className="header-content">
         <Link to="/"><img src={soleSwapLogo} alt="Sole Swap Logo" className="logo" /></Link>
-        <div className="search-bar"><input type="text" placeholder="Search..." /></div>
+      
         <div className="sign-up-login">
           <button>❤️</button>
           <button><Link to="/createaccount">Sign Up</Link></button>
@@ -58,6 +58,8 @@ function Contact() {
         </div>
       </div>
     </div>
+
+    
   );
 }
 

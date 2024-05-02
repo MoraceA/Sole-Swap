@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+import { db } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
 import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 
 //userdash 
@@ -10,11 +10,11 @@ function UserDashboard() {
   const navigate = useNavigate();
 
   const [userProfile, setUserProfile] = useState({
-    username: "ARV247",
+    username: " ",
     rating: 0,
     followers: 0,
     following: 0,
-    description: "Open to trading. Message me if you find something you like.",
+    description: " ",
     image: profilePicUrl 
   });
 
