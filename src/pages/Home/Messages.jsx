@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Messages.css';
-import { db } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
 
 const UserModal = ({ isOpen, onClose, users, onSelectUser }) => {

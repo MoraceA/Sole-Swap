@@ -99,9 +99,8 @@ function Login() {
           </Link>
         </div>
         <div className="sign-up-login">
-          <button>❤️</button>
-          <Link to="/createaccount"><button>Sign Up</button></Link>
-          <Link to="/login"><button>Login</button></Link>
+     
+        
         </div>
       </div>
 

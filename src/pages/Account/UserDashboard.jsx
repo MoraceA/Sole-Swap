@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/shaniabrown/Documents/GitHub/Sole-Swap/src/firebase.js';
+import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
+import { signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth"; 
 
 //userdash 
 function UserDashboard() {
@@ -234,11 +236,29 @@ function UserDashboard() {
     setReviews(reviewsData);
   };
 
+  function handleLogout() {
+    window.localStorage.removeItem("isLoggedIn");
+    if (window.confirm('Are you sure you want to log out?')) { // Use window.confirm for confirmation dialog
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          console.log('User signed out successfully');
+          renderHomePageForLoggedOutUser();
+        })
+        .catch((error) => {
+          // An error happened.
+          console.error('Error signing out:', error);
+        });
+      } 
+  }
+  const renderHomePageForLoggedOutUser = () => {
+    // Redirect to profile page
+    navigate("/");
+  };
 
-  const goToSignUp = () => navigate('/createaccount');    
+  
 
-
-  const goToLogin = () => navigate('/login');
 
   const openReviewForm = () => {
     setIsReviewFormOpen(true);
@@ -257,7 +277,7 @@ function UserDashboard() {
        
         <div className="sign-up-login">
 
-          <button onClick={goToLogin}>Log Out</button>
+          <button onClick={handleLogout}>Log Out</button>
           <button onClick={handleMessage}>Message</button>
         </div>
       </div>
