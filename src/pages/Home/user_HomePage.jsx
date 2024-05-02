@@ -124,9 +124,6 @@ function Homepage() {
           <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" />
         </div>
 
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
 
         <div className="sign-up-login">
         <button onClick={handleNotificationClick}>
