@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './UserDashboard.css';
 import profilePicUrl from '../../assets/userdashboard.png';
-import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
+import { db } from '/Users/2018v/Sole-Swap/src/firebase.js';
 import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; 
