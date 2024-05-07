@@ -33,8 +33,6 @@ The sneaker trading community is currently facing an absence of a centralized, s
 - [Markdown Guide](https://www.markdownguide.org/getting-started/)
 - [GitHub Guides](https://guides.github.com/)
 
-## Images
-![Alt text](/Users/ariana/Desktop/Sole Swap UI/Home Page.png)
 
 
 
