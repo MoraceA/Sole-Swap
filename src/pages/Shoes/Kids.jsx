@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -7,6 +7,7 @@ function Kids() {
   const [kidsShoes, setKidsShoes] = useState([]);
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -35,9 +36,14 @@ function Kids() {
     }
   };
 
+  const handleTrade = (shoeId) => {
+    const shoeToTrade = kidsShoes.find(shoe => shoe.id === shoeId);
+    navigate('/tradepage', { state: { shoeToTrade } });
+  };
+
   return (
     <div>
-        <nav>
+      <nav>
         <ul>
           <li><a href="/women's">Women's</a></li>
           <li><a href="/mens">Men's</a></li>
@@ -61,6 +67,7 @@ function Kids() {
               <p>Condition: {shoe.condition}</p>
               <p>Price: ${shoe.value}</p>
               <button onClick={() => handleLike(shoe.id)}>Like</button>
+              <button onClick={() => handleTrade(shoe.id)}>Trade</button> {/* Integrate trade functionality */}
             </div>
           ))}
         </div>

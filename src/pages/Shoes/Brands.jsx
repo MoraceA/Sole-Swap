@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -7,6 +7,7 @@ function Brands() {
   const [brandsData, setBrandsData] = useState([]);
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -35,6 +36,11 @@ function Brands() {
     }
   };
 
+  const handleTrade = (shoeId) => {
+    const shoeToTrade = brandsData.find(shoe => shoe.id === shoeId);
+    navigate('/tradepage', { state: { shoeToTrade } });
+  };
+
   const groupShoesByBrand = () => {
     const groupedBrands = {};
     brandsData.forEach(shoe => {
@@ -50,7 +56,7 @@ function Brands() {
 
   return (
     <div>
-        <nav>
+      <nav>
         <ul>
           <li><a href="/women's">Women's</a></li>
           <li><a href="/mens">Men's</a></li>
@@ -79,6 +85,7 @@ function Brands() {
                     <p>Condition: {shoe.condition}</p>
                     <p>Price: ${shoe.value}</p>
                     <button onClick={() => handleLike(shoe.id)}>Like</button>
+                    <button onClick={() => handleTrade(shoe.id)}>Trade</button> {/* Integrate trade functionality */}
                   </div>
                 ))}
               </div>
