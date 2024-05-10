@@ -7,9 +7,9 @@ function Womens() {
   const [womensShoes, setWomensShoes] = useState([]);
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Add this line to declare navigate function
 
-
-    // Fetching women's shoes from Firestore
+  // Fetching women's shoes from Firestore
   useEffect(() => {
     setLoading(true);
     const fetchWomensShoes = async () => {
@@ -30,8 +30,7 @@ function Womens() {
     fetchWomensShoes();
   }, []);
 
-
-    // Function to handle liking a shoe
+  // Function to handle liking a shoe
   const handleLike = (shoeId) => {
     const shoeToAdd = womensShoes.find(shoe => shoe.id === shoeId);
     if (!likedShoes.some(shoe => shoe.id === shoeId)) {
@@ -76,17 +75,6 @@ function Womens() {
               <button onClick={() => handleLike(shoe.id)}>Like</button>
               <button onClick={() => handleTrade(shoe.id)}>Trade</button> {/* Integrate trade functionality */}
             </div>
-            <Link to={`/description/${shoe.id}`} key={shoe.id} className="shoe-item"> 
-              <div className="shoe-item-content">
-                {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
-                <h3>{shoe.name}</h3>
-                <p>Brand: {shoe.brand}</p>
-                <p>Size: {shoe.size}</p>
-                <p>Condition: {shoe.condition}</p>
-                <p>Price: ${shoe.value}</p>
-                <button onClick={() => handleLike(shoe.id)}>Like</button>
-              </div>
-            </Link>
           ))}
         </div>
       )}
