@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -39,9 +39,18 @@ function Womens() {
     }
   };
 
+  const handleTrade = (shoeId) => {
+    const shoeToTrade = womensShoes.find(shoe => shoe.id === shoeId);
+    navigate('/tradepage', { state: { shoeToTrade } });
+  };
+
+  const navigateToLikedShoes = () => {
+    navigate('/likedShoes', { state: { likedShoes } });
+  };
+
   return (
     <div>
-        <nav>
+      <nav>
         <ul>
           <li><a href="/women's">Women's</a></li>
           <li><a href="/mens">Men's</a></li>
@@ -51,12 +60,22 @@ function Womens() {
       </nav>
       <Link to="/userhome"> Home</Link>
       <h2>Women's Shoes</h2>
-      <Link to={{ pathname: "/likedShoes", state: { likedShoes } }}>❤️ ({likedShoes.length})</Link>
+      <button onClick={navigateToLikedShoes}>❤️ ({likedShoes.length})</button>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="shoes-container">
           {womensShoes.map(shoe => (
+            <div key={shoe.id} className="shoe-item">
+              {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
+              <h3>{shoe.name}</h3>
+              <p>Brand: {shoe.brand}</p>
+              <p>Size: {shoe.size}</p>
+              <p>Condition: {shoe.condition}</p>
+              <p>Price: ${shoe.value}</p>
+              <button onClick={() => handleLike(shoe.id)}>Like</button>
+              <button onClick={() => handleTrade(shoe.id)}>Trade</button> {/* Integrate trade functionality */}
+            </div>
             <Link to={`/description/${shoe.id}`} key={shoe.id} className="shoe-item"> 
               <div className="shoe-item-content">
                 {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}

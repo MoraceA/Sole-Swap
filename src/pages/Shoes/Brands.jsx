@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -7,6 +7,7 @@ function Brands() {
   const [brandsData, setBrandsData] = useState([]);
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   // Fetching brands data from Firestore
   useEffect(() => {
@@ -53,7 +54,7 @@ function Brands() {
 
   return (
     <div>
-        <nav>
+      <nav>
         <ul>
           <li><a href="/women's">Women's</a></li>
           <li><a href="/mens">Men's</a></li>
