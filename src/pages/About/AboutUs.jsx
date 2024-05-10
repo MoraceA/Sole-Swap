@@ -3,16 +3,25 @@ import './AboutUs.css';
 import aboutUsImage from '../../assets/aboutus.png';
 import ourMissionImage from '../../assets/ourmission.png';
 
+
+
+
+
+
+//About us page function//
 function AboutUs() {
   return (
+    /* create classes for each container */
     <div className="about-container">
+          {/* class for the heading section */}
       <div className="header-content">
+
         <div>
           <a href="/">
             <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" />
           </a>
         </div>
-       
+       { /* Right header section */}
         <div className="sign-up-login">
           <button>❤️</button>
           <button><a href="/createaccount">Sign Up</a></button>
@@ -30,6 +39,9 @@ function AboutUs() {
         </ul>
       </nav>
 
+
+
+     {/* About us Section */}
       <div className="section about-section">
         <img src={aboutUsImage} alt="About Us" className="section-image" />
         <div className="section-text">

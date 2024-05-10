@@ -1,3 +1,6 @@
+
+/*import font family graduate*/
+
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
 #login-root {
@@ -20,12 +23,7 @@
   padding: 20px;
 }
 
-/*
-.logo {
-  height: 100px;
-  width: auto;
-}
-*/
+
 .sign-up-login button {
   background-color: white;
   color: black;

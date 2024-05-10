@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import './likedShoes.css'; // Ensure this CSS file is updated as below
+import './likedShoes.css'; 
 
 function LikedShoes() {
   const location = useLocation();
@@ -10,7 +10,7 @@ function LikedShoes() {
     <div className="liked-shoes-page">
       <div className="header">
         <Link to="/">
-          <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" /> {/* Update your logo path */}
+          <img src="src/assets/SOLE SWAP transparent.png" alt="Sole Swap Logo" className="logo" /> 
         </Link>
         <h1>Liked Shoes</h1>
       </div>

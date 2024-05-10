@@ -1,3 +1,5 @@
+/*profile form css*/
+
 #profile-root {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px 50px; /* Adjust based on your layout */
+  padding: 10px 50px;
   box-sizing: border-box;
 }
 
@@ -30,7 +32,7 @@
   padding: 20px;
   margin-top: 20px;
   width: 100%;
-  max-width: 400px; /* Adjust the width as necessary */
+  max-width: 400px; 
 }
 
 .profile-form {

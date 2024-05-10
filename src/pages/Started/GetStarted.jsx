@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 
-import '../../firebase'; // Import your CSS file for styling
+import '../../firebase'; 
 
-
+//had this page before, however, not using it anymore//
 function GetStarted() {
   return (
     <div className="section1">

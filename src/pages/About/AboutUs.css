@@ -1,3 +1,6 @@
+/*about us css*/
+
+
 .about-container {
   text-align: center;
   padding: 20px;
@@ -18,12 +21,7 @@
   margin: 0 auto; 
 }
 
-/*
-.logo {
-  height: 100px;
-  width: auto;
-}
-*/
+
 .search-bar input {
   width: 400px;
   padding: 10px;

@@ -32,8 +32,7 @@ function Login() {
       })
       .catch((error) => {
         console.error('Error setting session persistence:', error);
-        //const errorCode = error.code; ?????
-        // const errorMessage = error.message; ?????
+      
       });
   }, []);
 

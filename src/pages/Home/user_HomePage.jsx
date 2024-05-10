@@ -7,7 +7,7 @@ import '../Home/home.css';
 import { signOut } from "firebase/auth";
 import { getAuth } from "firebase/auth"; 
 
-import { db } from '../../firebase'; //fixed in another commit 
+import { db } from '../../firebase'; 
 import { auth } from '../../firebase';
 
 import { collection, getDocs } from 'firebase/firestore'; // Firestore imports

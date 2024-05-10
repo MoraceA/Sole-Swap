@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Messages.css';
-import { db } from '/Users/2018v/Sole-Swap/src/firebase.js';
+import { db } from '/Users/ariana/Documents/Sole-Swap/src/firebase.js';
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
 
-const UserModal = ({ isOpen, onClose, users, onSelectUser }) => {
-  const [search, setSearch] = useState('');
 
+
+
+// Component for user selection modal
+const UserModal = ({ isOpen, onClose, users, onSelectUser }) => {
+  const [search, setSearch] = useState(''); // State for search input value
+
+    // Filtering users based on search input
   const filteredUsers = users.filter(user =>
     user && user.name && typeof user.name === 'string' && user.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -33,6 +38,7 @@ const UserModal = ({ isOpen, onClose, users, onSelectUser }) => {
   );
 };
 
+// Component for keyboard keys
 const KeyboardKey = ({ value, onKeyPress }) => {
   return (
     <button className="keyboard-key" onClick={() => onKeyPress(value)}>
@@ -41,14 +47,19 @@ const KeyboardKey = ({ value, onKeyPress }) => {
   );
 };
 
+// Main Messages component
 const Messages = () => {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [messages, setMessages] = useState([]); // State for messages
+  const [input, setInput] = useState(''); // State for message input
+  const [isModalOpen, setModalOpen] = useState(false); // State for user modal visibility
+  const [users, setUsers] = useState([]);  // State for users
+  const [currentUser, setCurrentUser] = useState(null);  // State for current user
 
+
+
+   // useEffect hook for fetching users and messages
   useEffect(() => {
+      // Fetching users
     const usersQuery = collection(db, 'users');
     const unsubscribeUsers = onSnapshot(usersQuery, snapshot => {
       const fetchedUsers = snapshot.docs.map(doc => ({
@@ -58,6 +69,7 @@ const Messages = () => {
       setUsers(fetchedUsers);
     });
 
+       // Fetching messages
     const messagesQuery = query(collection(db, 'messages'), orderBy('timestamp', 'asc'));
     const unsubscribeMessages = onSnapshot(messagesQuery, snapshot => {
       const fetchedMessages = snapshot.docs.map(doc => ({
@@ -68,13 +80,15 @@ const Messages = () => {
     });
 
     return () => {
-      unsubscribeUsers();
-      unsubscribeMessages();
+      unsubscribeUsers();  // Cleanup function to unsubscribe from users query
+      unsubscribeMessages(); // Cleanup function to unsubscribe from messages query
     };
-  }, []);
+  }, []); // Empty dependency array to run only once on component mount
 
+   // Function to handle input change
   const handleInputChange = (e) => setInput(e.target.value);
 
+    // Function to handle send button click
   const handleSendClick = async () => {
     if (input.trim() && currentUser) {
       await addDoc(collection(db, 'messages'), {
@@ -83,14 +97,16 @@ const Messages = () => {
         userId: currentUser.id,
         userName: currentUser.name
       });
-      setInput(''); 
+      setInput('');    // Clearing input after sending message
     }
   };
 
+    // Function to handle keyboard key press
   const handleKeyPress = (value) => {
     setInput(input + value);
   };
 
+    // Function to handle backspace
   const handleBackspace = () => {
     setInput(input.slice(0, -1));
   };

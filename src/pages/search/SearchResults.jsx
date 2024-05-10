@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { db } from '../../firebase'; // Adjust based on your directory structure
+import { db } from '../../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 import './search.css';
 
+
+
+//function for search results
 function SearchResults() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sizeFilter, setSizeFilter] = useState('');
@@ -15,6 +18,8 @@ function SearchResults() {
   const location = useLocation();
   const navigate = useNavigate();
 
+
+    // useEffect to fetch search query from URL parameters and perform search
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const brandQuery = searchParams.get('query');
@@ -24,6 +29,8 @@ function SearchResults() {
     }
   }, [location]);
 
+
+  // useEffect to fetch brands data
   useEffect(() => {
     const fetchBrandsData = async () => {
       const brandsQuery = query(collection(db, "shoedisplay"));
@@ -38,6 +45,9 @@ function SearchResults() {
     fetchBrandsData();
   }, []);
 
+
+
+  // Function to perform search based on filters
   const performSearch = async () => {
     setLoading(true);
     let filteredQuery = collection(db, "shoedisplay");
@@ -67,6 +77,7 @@ function SearchResults() {
     }
   };
 
+  // Function to handle like button click
   const handleLike = (shoeId) => {
     const shoeToAdd = shoes.find(shoe => shoe.id === shoeId);
     if (!likedShoes.some(shoe => shoe.id === shoeId)) {
@@ -74,11 +85,14 @@ function SearchResults() {
     }
   };
 
+  //function to handle trade 
   const handleTrade = (shoeId) => {
     const shoeToTrade = shoes.find(shoe => shoe.id === shoeId);
     navigate('/tradepage', { state: { shoeToTrade } });
   };
 
+
+  //function to naviagte to the liked shoes page 
   const navigateToLikedShoes = () => {
     navigate('/likedShoes', { state: { likedShoes } });
   };

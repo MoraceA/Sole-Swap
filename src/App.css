@@ -66,14 +66,14 @@ nav ul li a {
   border: none; 
   border-radius: 25px; 
   background-color: #ddd; 
-  outline: none; /* Remove default focus outline */
-  background-image: url('/path/to/magnifying-glass.png'); /* need magnifying glass image */
-  background-size: 20px; /* change size of the magnifying glass image */
+  outline: none; 
+  background-image: url('/path/to/magnifying-glass.png'); /* magnifying glass image */
+  background-size: 20px; /*  size of the magnifying glass image */
   background-repeat: no-repeat; 
   background-position: 10px center; 
 }
 
-/* Adjust the padding to make space for the magnifying glass image */
+/*search bar padding*/
 .search-bar input::placeholder {
   padding-left: 30px;
 }
@@ -91,19 +91,19 @@ nav ul li a {
 .sign-up-login button,
 .header-content .sign-up-login button {
   background-color: white; 
-  color: black; /* text color black */
+  color: black; 
 }
 
 .header-content .sign-up-login button:last-child {
   background-color: white; 
-  color: black; /* text black */
+  color: black; 
 }
 
 /*  Carousel styles  */
 .carousel-container {
   width: 80%;
   max-width: 800px;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px; 
 }
 
 

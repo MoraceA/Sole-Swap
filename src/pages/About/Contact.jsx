@@ -4,9 +4,16 @@ import './Contact.css';
 import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 import { Link } from 'react-router-dom';
 
-function Contact() {
+
+
+
+function Contact() { 
+
+   // Function to handle form submission
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent default submision
+
+    // Sending form data to EmailJS service
     emailjs.sendForm('service_ted287k', 'template_2bdskeb', e.target, 'kIev1I-QO2hBowJKf')
       .then((result) => {
         alert('Message sent successfully!');

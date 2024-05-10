@@ -4,18 +4,20 @@ import './ProfileForm.css';
 import soleSwapLogo from '../../assets/SOLE SWAP.png';
 
 function ProfileForm() {
+    // State variables for profile information
   const [profile, setProfile] = useState({
     username: '',
     description: '',
     image: null,
   });
+   // Hook for navigation
   const navigate = useNavigate();
-
+// Function to handle changes in form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
-
+  // Function to handle changes in profile picture
   const handleImageChange = (e) => {
     if (e.target.files.length) {
       const file = e.target.files[0];
@@ -26,7 +28,7 @@ function ProfileForm() {
       reader.readAsDataURL(file);
     }
   };
-
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem('userProfile', JSON.stringify(profile));

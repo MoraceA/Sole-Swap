@@ -8,6 +8,7 @@ function Brands() {
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Fetching brands data from Firestore
   useEffect(() => {
     setLoading(true);
     const fetchBrandsData = async () => {
@@ -28,6 +29,7 @@ function Brands() {
     fetchBrandsData();
   }, []);
 
+  // Function to handle liking a shoe
   const handleLike = (shoeId) => {
     const shoeToAdd = brandsData.find(shoe => shoe.id === shoeId);
     if (!likedShoes.some(shoe => shoe.id === shoeId)) {
@@ -35,6 +37,7 @@ function Brands() {
     }
   };
 
+  // Function to group shoes by brand
   const groupShoesByBrand = () => {
     const groupedBrands = {};
     brandsData.forEach(shoe => {
@@ -46,7 +49,7 @@ function Brands() {
     return groupedBrands;
   };
 
-  const groupedBrands = groupShoesByBrand();
+  const groupedBrands = groupShoesByBrand(); // Grouping shoes by brand
 
   return (
     <div>
@@ -70,16 +73,18 @@ function Brands() {
               <h3>{brand}</h3>
               <div className="shoes-container">
                 {groupedBrands[brand].map(shoe => (
-                  <div key={shoe.id} className="shoe-item">
-                    {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
-                    <h3>{shoe.name}</h3>
-                    <p>Brand: {shoe.brand}</p>
-                    <p>Size: {shoe.size}</p>
-                    <p>Gender: {shoe.gender}</p>
-                    <p>Condition: {shoe.condition}</p>
-                    <p>Price: ${shoe.value}</p>
-                    <button onClick={() => handleLike(shoe.id)}>Like</button>
-                  </div>
+                  <Link to={`/description/${shoe.id}`} key={shoe.id} className="shoe-item"> 
+                    <div className="shoe-item-content">
+                      {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
+                      <h3>{shoe.name}</h3>
+                      <p>Brand: {shoe.brand}</p>
+                      <p>Size: {shoe.size}</p>
+                      <p>Gender: {shoe.gender}</p>
+                      <p>Condition: {shoe.condition}</p>
+                      <p>Price: ${shoe.value}</p>
+                      <button onClick={() => handleLike(shoe.id)}>Like</button>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>

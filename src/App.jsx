@@ -27,6 +27,8 @@ import Homepage from '../src/pages/Home/HomePage.jsx'
 
 function App() {
   return (
+
+    //routing to render all pages //
     <Router>
       <Routes>
        {/*} <Route exact path="/" element={<GetStarted/>} /> */}
@@ -45,8 +47,7 @@ function App() {
         <Route exact path="/ProfileForm" element={<ProfileForm/>} />
         <Route exact path="/UserDashboard" element={<UserDashboard/>} />
         <Route exact path="/likedShoes" element={<LikedShoes />} />
-        <Route exact path="/description" element={<Description />} />
-
+        <Route path="/description/:id" element={<Description />} />
         <Route exact path="/messages" element={<Messages />} /> 
         <Route exact path="/tradepage" element={<TradePage />} /> 
 

@@ -6,15 +6,16 @@ import soleSwapLogo from '../../assets/SOLE SWAP transparent.png';
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
 
+// Function to toggle FAQ visibility
   const toggleFAQ = index => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
+ // Array containing questions and answers
   const questionsAnswers = [
     { question: "How do I return a product?", answer: "You can return a product within 30 days of purchase. Please visit our returns page for detailed instructions." },
     { question: "How can I track my order?", answer: "Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on our carrier's website." },
     { question: "Do you offer international shipping?", answer: "Yes, we offer international shipping. Shipping costs will vary depending on the destination country." },
-    // Add more questions and answers here
+ 
   ];
 
   return (

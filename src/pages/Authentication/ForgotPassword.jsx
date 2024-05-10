@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ForgotPassword.css';
-import soleSwapLogo from '../../assets/SOLE SWAP.png'; // Update this path as needed
-import forgotPasswordImage from '../../assets/forgotpassword.jpg'; // Update path as needed
+import soleSwapLogo from '../../assets/SOLE SWAP.png'; 
+import forgotPasswordImage from '../../assets/forgotpassword.jpg'; 
 
+
+
+// Functional component for Forgot Password page
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');   // State variable for email input
 
+
+   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Password reset email sent to:', email);

@@ -8,6 +8,9 @@ function Kids() {
   const [likedShoes, setLikedShoes] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
+
+  // Fetching kids' shoes from Firestore
   useEffect(() => {
     setLoading(true);
     const fetchKidsShoes = async () => {
@@ -17,17 +20,20 @@ function Kids() {
         const fetchedShoes = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
-        setKidsShoes(fetchedShoes);
+        }));  // Mapping fetched documents to shoe objects
+        setKidsShoes(fetchedShoes);  // Setting state with fetched shoes
       } catch (error) {
-        console.error("Error fetching kids shoes:", error);
+        console.error("Error fetching kids shoes:", error); // Handling errors
       } finally {
-        setLoading(false);
+        setLoading(false);  // Set loading state to false after data is fetched
       }
     };
-    fetchKidsShoes();
-  }, []);
+    fetchKidsShoes();  // Calling fetchKidsShoes function
+  }, []);  // Dependency array ensures useEffect runs only once when component mounts
 
+
+
+  //function to handle liking a shoe 
   const handleLike = (shoeId) => {
     const shoeToAdd = kidsShoes.find(shoe => shoe.id === shoeId);
     if (!likedShoes.some(shoe => shoe.id === shoeId)) {
@@ -53,15 +59,17 @@ function Kids() {
       ) : (
         <div className="shoes-container">
           {kidsShoes.map(shoe => (
-            <div key={shoe.id} className="shoe-item">
-              {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
-              <h3>{shoe.name}</h3>
-              <p>Brand: {shoe.brand}</p>
-              <p>Size: {shoe.size}</p>
-              <p>Condition: {shoe.condition}</p>
-              <p>Price: ${shoe.value}</p>
-              <button onClick={() => handleLike(shoe.id)}>Like</button>
-            </div>
+            <Link to={`/description/${shoe.id}`} key={shoe.id} className="shoe-item"> {/* Updated Link component */}
+              <div className="shoe-item-content">
+                {shoe.imageURL && <img src={shoe.imageURL} alt={shoe.name} />}
+                <h3>{shoe.name}</h3>
+                <p>Brand: {shoe.brand}</p>
+                <p>Size: {shoe.size}</p>
+                <p>Condition: {shoe.condition}</p>
+                <p>Price: ${shoe.value}</p>
+                <button onClick={() => handleLike(shoe.id)}>Like</button>
+              </div>
+            </Link>
           ))}
         </div>
       )}
