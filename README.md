@@ -30,6 +30,25 @@ The sneaker trading community is currently facing an absence of a centralized, s
 ## Pictures 
 ![Sole Swap Poster-2](https://github.com/ShaniaB417/Sole-Swap/assets/107355668/9fade6a1-ac58-488f-90eb-9ed9e5615069)
 
+<img width="846" alt="Create Account Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/386c1911-9ee5-4328-b046-c324dd7a8e96">
+
+<img width="906" alt="Login Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/22474eb6-4c07-4207-a23d-c8b623d2ce32">
+
+
+<img width="1283" alt="Home Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/63c7a26f-8e0d-46ab-8759-e6a8690cdde5">
+
+
+<img width="726" alt="User Profile Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/006b613c-1f91-4c1a-9431-e0580799661a">
+
+<img width="738" alt="Mens Shoes Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/e636f92c-4a14-4816-8b09-46c8f1300f23">
+
+<img width="907" alt="Contact Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/80dc482a-ec0d-470c-8da9-3449a99029b6">
+
+
+<img width="623" alt="About Us Page" src="https://github.com/MoraceA/Sole-Swap/assets/99560179/764d4262-d455-4bdb-9014-8cbb7ae7e238">
+
+
+
 
 ## Resources
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
