@@ -25,7 +25,11 @@ The sneaker trading community is currently facing an absence of a centralized, s
 - Ariana
 - Gianni
 - Bryan
-- Shania 
+- Shania
+
+## Pictures 
+![Sole Swap Poster-2](https://github.com/ShaniaB417/Sole-Swap/assets/107355668/9fade6a1-ac58-488f-90eb-9ed9e5615069)
+
 
 ## Resources
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
